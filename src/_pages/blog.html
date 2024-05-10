@@ -1,0 +1,13 @@
+---
+layout: blog
+eleventyComputed:
+  title: "Tous les articles{% if pagination.pageNumber > 0 %} (Page {{ pagination.pageNumber | plus:1 }}/{{ pagination.hrefs | size }}){% endif %}"
+permalink: "/blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | plus:1 }}/{% endif %}"
+pagination:
+  data: getAllPosts
+  size: 4
+  alias: posts
+---
+
+{% render "postList.html" posts: posts, layoutGrid: "square,tall,tall,square" %}
+{% render "pagination.html" hrefs: pagination.hrefs, page: page  %}

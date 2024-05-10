@@ -1,0 +1,55 @@
+:is(.badge-primary, .badge-secondary) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding: 0.5rem 1rem 0.5rem 2rem;
+  position: relative;
+  text-decoration: none;
+  border-radius: 1.5rem;
+  transition: all 0.2s cubic-bezier(0.61, 1, 0.88, 1);
+}
+
+.badge-primary::before,
+.badge-secondary::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  transition: all 0.2s cubic-bezier(0.61, 1, 0.88, 1);
+}
+
+:is(.badge-primary .total-posts, .badge-secondary .total-posts) {
+  font-size: 0.875rem;
+}
+
+.badge-primary {
+  background: var(--purple);
+  color: var(--white);
+}
+
+.badge-primary::before {
+  background: var(--white);
+}
+
+.badge-secondary {
+  background: var(--white);
+  color: var(--black);
+}
+
+.badge-secondary::before {
+  background: var(--black);
+}
+
+.badge-primary:hover {
+  background: var(--light-purple);
+  color: var(--black);
+}
+
+.badge-primary:hover::before {
+  background: var(--black);
+}

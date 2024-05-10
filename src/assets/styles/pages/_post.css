@@ -1,0 +1,47 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post-img {
+  width: 100%;
+  max-height: 20rem;
+  object-fit: cover;
+}
+
+.post-header {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.post-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+:is(.post-date span, .post-reading span) {
+  color: var(--purple);
+  font-weight: 600;
+}
+.post-title {
+  font-size: 2rem;
+}
+
+:is(.post-categories, .post-actions) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.post-data {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-picture {
+  align-self: center;
+  width: 100%;
+}

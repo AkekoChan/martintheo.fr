@@ -1,0 +1,31 @@
+.tags {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tags > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tags-title {
+  font-size: 2rem;
+}
+
+.tags-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .tags {
+    gap: 1.5rem;
+  }
+
+  .tags-title {
+    font-size: 1.5rem;
+  }
+}

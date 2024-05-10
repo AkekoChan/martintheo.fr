@@ -1,0 +1,4 @@
+.scroll-locked {
+  overflow: hidden;
+  position: fixed;
+}

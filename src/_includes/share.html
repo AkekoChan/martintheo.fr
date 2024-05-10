@@ -1,0 +1,19 @@
+{% assign socialNetworks = "brand-facebook,brand-x,brand-linkedin,clipboard" | split: ',' %}
+{% assign label = "Partagez sur Facebook,Partagez sur X (Twitter),Partagez sur Linkedin,Partagez le lien" | split: ',' %}
+{% assign social = "facebook,twitter,linkedin,copy" | split: ',' %}
+
+<div class="share">
+    <button class="share-btn">
+        {% render "icon.html", icon: "share", width: 32, height: 32 %}
+        <span class="sr-only">Partagez l'article</span>
+    </button>
+    <div class="share-modal" id="dialog" role="dialog" aria-hidden="false">
+        <button class="share-modal-btn" aria-controls="dialog" aria-hidden="false">{% render "icon.html", icon: "x" %}<span class="sr-only">Fermer la boîte de dialog</span></button>
+        <p>Partagez l'article sur les réseaux sociaux :</p>
+        <ul class="share-icons">
+            {% for item in socialNetworks %}
+                <li class="share-icon"><button class="share-social-btn" data-social="{{ social[forloop.index0] }}"  data-url="{{ url }}">{% render "icon.html", icon: item, width: 32, height: 32 %} <span class="sr-only">{{ label[forloop.index0] }}</span></button></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

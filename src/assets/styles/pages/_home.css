@@ -1,0 +1,37 @@
+.home-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.home-main-title {
+  font-size: 3rem;
+}
+
+.home-main-title span {
+  color: var(--purple);
+}
+
+.home-title {
+  font-size: 2rem;
+}
+
+:is(.home-last, .home-most-liked) {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .home-main-title {
+    font-size: 2rem;
+  }
+
+  .home-title {
+    font-size: 1.5rem;
+  }
+
+  :is(.home-last, .home-most-liked) {
+    gap: 1rem;
+  }
+}

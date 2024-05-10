@@ -1,0 +1,11 @@
+{% capture props %}
+    {
+    "src": "{{ src }}"
+    {% if alt %},"alt": "{{ alt }}"{% endif %}
+    {% if className %},"className": "{{ className }}"{% endif %}
+    {% if imgClassName %},"imgClassName": "{{ imgClassName }}"{% endif %}
+    {% if isLazy != nil %},"isLazy": {{ isLazy }}{% endif %}
+  }
+{% endcapture %}
+{% assign props = props | fromJSON %}
+{% picture props %}

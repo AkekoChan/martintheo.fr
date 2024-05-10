@@ -1,0 +1,43 @@
+.gradient-1 {
+  background-image: linear-gradient(
+    to right top,
+    #7b5199,
+    #9a6eaa,
+    #b78cbb,
+    #d1accf,
+    #eacee4
+  );
+}
+
+.gradient-2 {
+  background-image: linear-gradient(
+    to left top,
+    #7b5199,
+    #9a6eaa,
+    #b78cbb,
+    #d1accf,
+    #eacee4
+  );
+}
+
+.gradient-3 {
+  background-image: linear-gradient(
+    to top,
+    #7b5199,
+    #9a6eaa,
+    #b78cbb,
+    #d1accf,
+    #eacee4
+  );
+}
+
+.gradient-4 {
+  background-image: linear-gradient(
+    to right bottom,
+    #7b5199,
+    #9a6eaa,
+    #b78cbb,
+    #d1accf,
+    #eacee4
+  );
+}

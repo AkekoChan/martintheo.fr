@@ -1,0 +1,35 @@
+.footer {
+  border-top: 0.0625rem solid var(--gray);
+  padding: 2rem;
+  width: 100vw;
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+:is(.footer-title, .footer-copyright) {
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-link {
+  display: flex;
+}
+
+.footer-made {
+  display: flex;
+  gap: 0.25rem;
+}

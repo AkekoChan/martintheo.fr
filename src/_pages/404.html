@@ -1,0 +1,22 @@
+---
+title: "404 : Page non trouvée"
+description: La page n'a pas été trouvée.
+layout: base
+permalink: 404.html
+eleventyExcludeFromCollections: true
+excludeFromSitemap: true
+stylesheets:
+  - /assets/styles/404.css
+---
+
+<main>
+  <h1>Erreur 404</h1>
+  <p>
+    Cette page n'est peut-être plus disponible, mais cela ne signifie pas que
+    vous êtes perdu(e) !
+  </p>
+  <a href="/">
+  Revenir sur la Page d'accueil 
+  {% render "icon.html" icon: "arrow-long-right", stroke: "#7B5199", className: "link-icon" %}
+  </a>.
+</main>

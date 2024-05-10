@@ -1,0 +1,51 @@
+@import "global/_fonts.css";
+@import "global/_reset.css";
+@import "global/_global.css";
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  text-align: center;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  box-shadow: inset 0 0 0 0 var(--purple);
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  transition: color 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+:is(a:hover, a:focus-visible) {
+  box-shadow: inset 400px 0 0 0 var(--purple);
+  color: var(--white);
+}
+
+.link-icon {
+  transition: 0.4s ease-in-out;
+}
+
+:is(a:hover .link-icon, a:focus-visible .link-icon) {
+  stroke: var(--white) !important;
+}
+
+:is(p, a) {
+  font-size: 1.25rem !important;
+}

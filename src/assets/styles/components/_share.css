@@ -1,0 +1,66 @@
+.share {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  position: relative;
+}
+:is(.share-btn, .share-icon button, .share-modal-btn) {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.share-btn svg {
+  stroke: var(--purple);
+  transition: all 0.4s cubic-bezier(0.61, 1, 0.88, 1);
+}
+
+.share-btn:hover svg {
+  fill: var(--purple);
+}
+
+.share-icons {
+  display: flex;
+  gap: 1rem;
+  align-self: center;
+}
+
+.share-modal {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--white);
+  padding: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 2rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.share-modal-btn {
+  align-self: flex-end;
+}
+
+.share-modal p {
+  text-align: center;
+}
+
+.share-icon button {
+  cursor: pointer;
+}
+
+.share-icon svg {
+  stroke: var(--purple);
+}
+
+.share-modal.isOpen {
+  opacity: 1;
+  pointer-events: all;
+}

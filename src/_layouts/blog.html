@@ -1,0 +1,28 @@
+---
+layout: default
+isBlogPage: true
+---
+
+<section class="blog-container">
+  <div class="blog-wrapper">
+      {% if isTagsPage %}
+        <a class="blog-link" href="/tags/">Voir toutes les catégories {% render "icon.html" icon: "arrow-long-right", stroke: "#171717", className: "blog-link-icon" %}</a>
+      {% endif %}
+    <h1 class="blog-title">
+      {% if isTagsPage %}
+        {% assign tagTitle = title | split: ":" %} 
+        {% assign tagFormat = tagTitle[1] | prepend: '<span>' | append: '</span>' %}
+        {% assign tagTitle = tagTitle[0] | append: ' : ' | append: tagFormat %}
+        {{ tagTitle }}
+        {% else %}
+            {{ title }}
+      {% endif %}
+    </h1>
+    {% if isTagsPage != true %}
+      <p>
+        Partez à la découverte de mes écrits : naviguez parmi les articles ou laissez-vous guider par <a href="/tags/">les catégories</a>.
+      </p>
+    {% endif %}
+  </div>
+  {{ content }}
+</section>

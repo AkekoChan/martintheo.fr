@@ -1,0 +1,21 @@
+---
+title: Toutes les Catégories
+description: Découvrez toutes les catégories de mon blog.
+excludeFromSitemap: true
+noindex: true
+permalink: "/tags/"
+---
+
+<section class="tags">
+    <div>
+        <h1 class="tags-title">{{ title }}</h1>
+        <p class="tags-paragraph">Naviguez parmi mes catégories et laissez-vous surprendre par la richesse et la diversité de mes écrits.</p>
+    </div>
+    <nav aria-label="categories">
+        <ul class="tags-list">
+            {% for tag in getPostsByCategory %}
+                <li class="tags-item"><a class="badge-primary" href="{{ tag.href }}">{{ tag.title }} <span class="total-posts">{{ tag.posts | size }}<span class="sr-only">articles</span></span></a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+</section>

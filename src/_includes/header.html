@@ -1,0 +1,52 @@
+<header class="header">
+  <a href="#main-content" class="header-skip-link sr-only">Aller au contenu</a>
+  <div class="header-container">
+    <p class="header-logo">
+      <a
+        href="/"
+        {% if permalink == "/" %}
+        aria-current="page"
+        {% endif %}>
+        {% if author %}
+          {{ author }}
+        {% endif %}
+      </a>
+    </p>
+    <nav
+      id="nav"
+      class="header-nav"
+      role="navigation"
+      aria-hidden="false">
+      <ul class="header-links">
+        {% assign permalink = permalink |  split: "/" %}
+        {% assign permalink = permalink[1] |  prepend: '/' |  append: '/' %}
+
+        {% for link in nav %}
+          <li style="--animation-order: {{ forloop.index }}">
+            <a
+              href="{{ link.permalink }}"
+              class="header-link link"
+              {% if permalink == link.permalink %}
+              aria-current="page"
+              {% endif %}
+              {% if permalink == "/blog/" and isBlogPage %}
+                aria-current="page"
+                {% endif %}>
+              {{ link.text }} {% render "icon.html" icon: "arrow-long-right", stroke: "#7B5199", className: "header-icon link-icon" %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <button
+      class="header-open-nav"
+      aria-controls="nav"
+      aria-expanded="false">
+      <div>
+        <span class="burger"></span>
+        <span class="burger"></span>
+      </div>
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
+</header>

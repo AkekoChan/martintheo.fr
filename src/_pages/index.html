@@ -1,0 +1,26 @@
+---
+permalink: "/"
+---
+
+<section class="home-hero">
+  <h1 class="home-main-title">
+    Salut, je suis
+    <span>Théo</span>
+  </h1>
+  <p class="home-paragraph">
+    Plongez dans l'univers de mon stage en développement web : articles,
+    réflexions et anecdotes vous attendent ! Découvrez
+    <a href="/blog/">mes articles</a> ou
+    <a href="/about/">apprenez-en plus sur moi.</a>
+  </p>
+</section>
+<section class="home-last">
+  <h2 class="home-title">Les Derniers Articles</h2>
+    {% assign recentPosts = getAllPosts | limit: 4 %}
+    {% render "postList.html" posts: recentPosts, layoutGrid: "tall,square,tall,square" %}
+</section>
+<section class="home-most-liked">
+  <h2 class="home-title">Les Articles les plus Intéressants</h2>
+  {% assign mostLikesPosts = getAllPosts | isInteresting %}
+  {% render "postList.html" posts: mostLikesPosts, layoutGrid: "square,wide,wide,square" %}
+</section>

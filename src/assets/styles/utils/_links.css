@@ -1,0 +1,31 @@
+.link {
+  box-shadow: inset 0 0 0 0 var(--purple);
+  width: fit-content;
+  text-decoration: none;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  transition: color 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+:is(.link:hover, .link:focus-visible, .link[aria-current]) {
+  box-shadow: inset 200px 0 0 0 var(--purple);
+  color: var(--white);
+}
+
+.link-icon {
+  transition: 0.4s ease-in-out;
+}
+
+:is(
+    .link:hover .link-icon,
+    .link:focus-visible .link-icon,
+    .link[aria-current] .link-icon
+  ) {
+  stroke: var(--white) !important;
+}
+
+@media (max-width: 768px) {
+  :is(.link:hover, .link:focus-visible, .link[aria-current]) {
+    box-shadow: inset 290px 0 0 0 var(--purple);
+  }
+}

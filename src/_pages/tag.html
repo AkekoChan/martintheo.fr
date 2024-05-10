@@ -1,0 +1,16 @@
+---
+layout: blog
+isTagsPage: true
+isBlogPage: true
+pagination:
+    data: getPostsByCategory
+    size: 1
+    alias: tag
+permalink: "{{ tag.href }}"
+eleventyComputed:
+  title: "Catégorie : {{ tag.title }}"
+---
+
+{% assign sizeTagPosts = tag.posts | size %}
+
+{% render "postList.html", posts: tag.posts, layoutGrid: "large,square,square,square", length: sizeTagPosts %}

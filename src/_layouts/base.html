@@ -1,0 +1,72 @@
+{% comment %} Variables globales utilisées pour les metadatas {% endcomment %}
+{% assign defaultPageTitle = metadata.title %}
+{% assign pageTitle = title %}
+{% comment %} Description pour la balise meta {% endcomment %}
+{% assign description = description | default: metadata.description %}
+{% comment %} Url canonique de l'application {% endcomment %}
+{% assign defaultCanonicalUrl = page.url | toAbsoluteUrl %}
+{% assign canonicalUrl = canonicalUrl | default: defaultCanonicalUrl %}
+
+<!DOCTYPE html>
+<html lang="{{ metadata.lang }}">
+  <head>
+    <title>{% if page.url == "/" %}{{ defaultPageTitle }}{% else %}{{ defaultPageTitle |  append: ' - ' | append: pageTitle }}{% endif %}</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="{% if page.url == "/" %}{{ defaultPageTitle }}{% else %}{{ defaultPageTitle |  append: ' - ' | append: pageTitle }}{% endif %}" />
+    <meta name="description" content="{{ description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="{{ metadata.author }}">
+    <link rel="canonical" href="{{ canonicalUrl }}">
+    {% comment %} Empêche la page d'apparaître sur les moteurs de recherche {% endcomment %}
+    {% if noindex %}
+      <meta name="robots" content="noindex">
+  {% endif %}
+    {% comment %} Favicons {% endcomment %}
+    {% favicon "src/assets/images/favicons/favicon.svg" %}
+    {% comment %} Style CSS {% endcomment %}
+    {% comment %} Preload des fonts et du CSS {% endcomment %}
+    {% for preload in preloads %}
+      <link
+        rel="preload"
+        href="{{ preload.href }}"
+        as="{{ preload.as }}"
+        type="{{ preload.type }}"
+        {% if preload.crossorigin %}
+        crossorigin
+        {% endif %}>
+    {% endfor %}
+    {% for href in stylesheets %}
+      <link rel="stylesheet" href="{{ href }}">
+    {% endfor %}
+    {% comment %} Script JS {% endcomment %}
+    {% for script in scripts %}
+      <script
+        {% if script.defer %}
+        defer
+        {% endif %}
+        src="{{ script.src }}"></script>
+    {% endfor %}
+    {% comment %} Open Graph / Facebook {% endcomment %}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ page.url | toAbsoluteUrl}}" />
+    <meta property="og:title" content="{{ pageTitle }}" />
+    <meta property="og:description" content="{{ description }}" />
+    {% if openGraph.image %}
+      <meta property="og:image" content="{{ openGraph.image }}" />
+    {% endif %}
+    {% comment %} Twitter {% endcomment %}
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="{{ page.url | toAbsoluteUrl}}" />
+    <meta property="twitter:title" content="{{ pageTitle }}" />
+    <meta property="twitter:description" content="{{ description }}" />
+    {% if openGraph.image %}
+      <meta property="twitter:image" content="{{ openGraph.image }}" />
+    {% endif %}
+    <meta name="generator" content="{{ eleventy.generator }}" />
+    <link rel="manifest" href="{{ "manifest.json" | toAbsoluteUrl }}">
+    <meta name="theme-color" content="{{ metadata.themeColor }}" />
+  </head>
+  <body>
+    {{ content }}
+  </body>
+</html>

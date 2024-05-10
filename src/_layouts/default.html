@@ -1,0 +1,20 @@
+---
+layout: base
+stylesheets: 
+- /assets/styles/main.css
+scripts: 
+- 
+    src: /assets/scripts/index.js 
+    defer: true
+eleventyComputed: 
+    preloads:
+    -
+        as: style
+        type: text/css
+        href: /assets/styles/main.css
+---
+{% render "header.html" author: metadata.author, nav: navigation.header, permalink: permalink  %}
+<main id="main-content">
+    {{ content }}
+</main>
+{% render "footer.html" author: metadata.author, nav: navigation.footer %}

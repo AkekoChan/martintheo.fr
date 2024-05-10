@@ -1,0 +1,10 @@
+{% assign randomPosition = layoutGrid | split: ',' %}
+{% if length > 4 %}
+ {% assign randomPosition = randomPosition | concat: randomPosition %}
+{% endif %}
+
+<ul class="post-list">
+    {% for post in posts %}
+        {% render "postItem.html" post: post, index: forloop.index, position: randomPosition[forloop.index0] %}
+    {% endfor %}
+</ul>

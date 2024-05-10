@@ -1,0 +1,8 @@
+---
+permalink: "/service-worker.js"
+eleventyExcludeFromCollections: true
+excludeFromSitemap: true
+---
+{% assign version = "" | random %}
+const VERSION = "{{ version }}";
+{% render "js/service-worker.js" %}

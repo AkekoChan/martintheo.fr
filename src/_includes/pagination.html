@@ -1,0 +1,26 @@
+<nav class="pagination" aria-label="pagination">
+  <ol class="pagination-links">
+    {% for href in hrefs %}
+      {% assign firstElement = hrefs | first %}
+      {% assign isFirst = href == firstElement %}
+      {% assign lastElement = hrefs | last %}
+      {% assign isLast = href == lastElement %}
+      <li class="pagination-link">
+        <a
+          href="{{ href }}"
+          {% if href == page.url %}
+          aria-current="page"
+          {% endif %}>
+          <span class="sr-only">Page</span>
+          {{ forloop.index }}
+          {% if isFirst %}
+            <span class="sr-only">Première page</span>
+          {% endif %}
+          {% if isLast %}
+            <span class="sr-only">Dernière page</span>
+          {% endif %}
+        </a>
+      </li>
+    {% endfor %}
+  </ol>
+</nav>

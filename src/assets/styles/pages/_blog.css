@@ -1,0 +1,38 @@
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.blog-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.blog-title {
+  font-size: 2rem;
+}
+
+.blog-title > span {
+  color: var(--purple);
+}
+
+.blog-link {
+  display: flex;
+  align-items: center;
+  color: var(--black);
+  font-weight: 600;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .blog-container {
+    gap: 1rem;
+  }
+
+  .blog-title {
+    font-size: 1.5rem;
+  }
+}
