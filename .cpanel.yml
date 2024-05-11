@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/math9990/public_html/my-blog/
-    - /bin/cp -R _site $DEPLOYPATH
