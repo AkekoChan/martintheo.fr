@@ -8,7 +8,7 @@ const envVariables = {
     urlStrapi: "http://localhost:1337",
   },
   prod: {
-    urlEleventy: "",
+    urlEleventy: "https://martintheo.fr",
     urlStrapi: "",
   },
 };
