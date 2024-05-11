@@ -2,11 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/math9990/public_html/my-blog/
-    # - /bin/cp -R .vscode $DEPLOYPATH
-    # - /bin/cp -R assets $DEPLOYPATH
-    # - /bin/cp -R css $DEPLOYPATH
-    # - /bin/cp -R fonts $DEPLOYPATH
-    # - /bin/cp -R img $DEPLOYPATH
-    # - /bin/cp -R js $DEPLOYPATH
-    # /bin/cp index.html $DEPLOYPATH
-    # /bin/cp index.html $DEPLOYPATH
+    - /bin/cp -R _site $DEPLOYPATH
