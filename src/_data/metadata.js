@@ -9,7 +9,7 @@ const envVariables = {
   },
   prod: {
     urlEleventy: "https://martintheo.fr",
-    urlStrapi: "",
+    urlStrapi: "https://backend.martintheo.fr",
   },
 };
 

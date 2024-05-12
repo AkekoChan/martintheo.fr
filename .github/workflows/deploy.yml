@@ -13,6 +13,12 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Create env file
+        run: |
+          touch .env
+          echo ELEVENTY_ENV=${{ secrets.ELEVENTY_ENV }} >> .env
+          cat .env
+
       - name: 🔨 Build Project
         run: |
           npm install
