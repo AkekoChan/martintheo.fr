@@ -4,12 +4,6 @@
   gap: 1.5rem;
 }
 
-.post-img {
-  width: 100%;
-  max-height: 20rem;
-  object-fit: cover;
-}
-
 .post-header {
   display: flex;
   gap: 0.5rem;

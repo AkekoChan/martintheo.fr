@@ -7,15 +7,22 @@
     <nav class="footer-nav">
       <ul class="footer-links">
         {% for link in nav %}
-            <li>
-                <a class="footer-link" href="{{ link.permalink }}">
-                    {% render "icon.html" icon: link.icon, stroke: "#7B5199", className: "footer-icon" %}
-                    <span class="sr-only">{{ link.text }}</span>
-                </a>
-            </li>            
+          <li>
+            <a
+              class="footer-link"
+              href="{{ link.permalink }}"
+              target="_blank">
+              {% render "icon.html" icon: link.icon
+                , stroke: "#7B5199"
+                , className: "footer-icon" %}
+              <span class="sr-only">{{ link.text }}</span>
+            </a>
+          </li>
         {% endfor %}
       </ul>
     </nav>
-    <p class="footer-made">Réalisé avec {% render "icon.html" icon: "heart", stroke: "#7B5199", className: "footer-icon" fill: "#7B5199" %}</p>
+    <p class="footer-made">Réalisé avec {% render "icon.html" icon: "heart"
+  , stroke: "#7B5199"
+  , className: "footer-icon" fill: "#7B5199" %}</p>
   </div>
 </footer>

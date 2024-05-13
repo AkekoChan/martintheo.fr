@@ -37,12 +37,14 @@
 }
 
 .badge-secondary {
-  background: var(--white);
-  color: var(--black);
+  font-size: 0.875rem;
+  color: var(--white);
+  border: solid 0.125rem var(--white);
+  font-weight: 600;
 }
 
 .badge-secondary::before {
-  background: var(--black);
+  background: var(--white);
 }
 
 .badge-primary:hover {

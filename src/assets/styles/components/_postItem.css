@@ -102,6 +102,12 @@
   }
 }
 
+.post-item-categories {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 768px) {
   .post-list {
     gap: 1rem;
