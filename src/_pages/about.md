@@ -13,7 +13,7 @@ eleventyComputed:
 
 # A propos de moi
 
-{% render "picture.html" src: "src/assets/images/ayanami.jpg", alt: "", className: "about-picture", imgClassName: "about-img img", isLazy: false %}
+{% render "picture.html" src: "src/assets/images/theo_enorme.png", alt: "", className: "about-picture", imgClassName: "about-img img", isLazy: false %}
 
 Futur **développeur web** passionné par la création de sites web, je suis actuellement en stage à la **CDA de La Rochelle** où je mets en pratique mes compétences.
 
