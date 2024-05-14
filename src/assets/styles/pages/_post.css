@@ -35,7 +35,18 @@
   gap: 1rem;
 }
 
-.about-picture {
-  align-self: center;
-  width: 100%;
+.post-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post-content strong {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+.post-content ul {
+  list-style: circle;
+  padding-left: 3rem;
 }

@@ -9,58 +9,67 @@ eleventyComputed:
 permalink: "/blog/{{ post.slug }}/index.html"
 ---
 
-{% assign currentPost = post %} 
-{% assign previousPost = getAllPosts | previousPost: currentPost %} 
-{% assign nextPost = getAllPosts | nextPost: currentPost %} 
-{% assign imgUrl = metadata.urlStrapi | append: post.thumbnail.url %} 
+{% assign currentPost = post %}
+{% assign previousPost = getAllPosts | previousPost: currentPost %}
+{% assign nextPost = getAllPosts | nextPost: currentPost %}
+{% assign imgUrl = metadata.urlStrapi | append: post.thumbnail.url %}
 {% assign readingTime = post.content | readingTime %}
 {% assign articleUrl = metadata.urlEleventy | append: page.url %}
 
 <section class="post">
-  {% render "picture.html" src: imgUrl, alt: post.thumbnail.alt , className:
-  "about-picture", imgClassName: "post-img img", isLazy: false %}
+  {% render "picture.html" src: imgUrl
+    , alt: post.thumbnail.alt
+    , className:
+ "about-picture"
+    , imgClassName: "post-img img"
+    , isLazy: false %}
 
   <div class="post-data">
     <div class="post-header">
       <div class="post-details">
         <p class="post-date">
-          Posté le <span>{{ post.date.createdAt | formatDateFr }}</span> - modifié
-          le <span>{{ post.date.updatedAt | formatDateFr }}</span>
+          Posté le
+          <span>{{ post.date.createdAt | formatDateFr }}</span>
+          - modifié
+ 
+          le
+          <span>{{ post.date.updatedAt | formatDateFr }}</span>
         </p>
         <p class="post-reading">
           Temps de lecture :
-          <span
-            >environ {{ readingTime }} minute{% if readingTime > 1 %}s{% endif
-            %}</span
-          >
+          <span>environ {{ readingTime }} minute{% if readingTime > 1 %}s{% endif %}
+          </span>
         </p>
-        </div>
-       {% render "share.html" url: articleUrl %}
+      </div>
+      {% render "share.html" url: articleUrl %}
     </div>
     <div class="post-details">
       <h1 class="post-title">{{ post.title }}</h1>
       <ul class="post-categories">
         {% for category in post.categories %}
-        <li>
-          <a href="/tags/{{ category | slugifyString }}" class="badge-primary"
-            >{{ category }}</a
-          >
-        </li>
+          <li>
+            <a href="/tags/{{ category | slugifyString }}" class="badge-primary">{{ category }}</a>
+          </li>
         {% endfor %}
       </ul>
     </div>
-    {% comment %} <ul class="post-actions">
-      <li class="post-action">
-        <button class="post-action-btn like">
-          {% render "icon.html", icon: "heart", width: 32, height: 32 %}
-        </button>
-      </li> 
-    </ul> {% endcomment %}
+  {% comment %} <ul class="post-actions">
+          <li class="post-action">
+            <button class="post-action-btn like">
+              {% render "icon.html", icon: "heart", width: 32, height: 32 %}
+            </button>
+          </li> 
+      </ul> {% endcomment %}
   </div>
 
-  <div>{{ post.content | markdown }}</div>
+  <div class="post-content">{{ post.content | markdown }}</div>
 
-  {% render "beneto.html" title: "Vous voulez en lire plus ?", text: "Regardez
-  ces autres articles :", isReverse: true, isBlog: true, nextPost: nextPost,
-  previousPost: previousPost %}
+  {% render "beneto.html" title: "Vous voulez en lire plus ?"
+    , text: "Regardez
+      ces autres articles :"
+    , isReverse: true
+    , isBlog: true
+    , nextPost: nextPost
+    ,
+ previousPost: previousPost %}
 </section>

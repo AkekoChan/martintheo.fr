@@ -2,30 +2,34 @@
 
 <div class="beneto {% if isReverse != nil %}beneto-reverse{% endif %}">
   {% if isBlog != nill %}
-    <ul class="beneto-links">
-      {% if previousPost %}
-        <li>
-          <a class="beneto-link link" href="/blog/{{ previousPost.slug }}/">{{ previousPost.title }} {% render "icon.html" icon: "arrow-long-right" width: 32
+    {% if previousPost == null and nextPost == null %}
+      <p class="beneto-no-posts">Il n'y pas d'autres articles pour l'instant !</p>
+    {% else %}
+      <ul class="beneto-links">
+        {% if previousPost %}
+          <li>
+            <a class="beneto-link link" href="/blog/{{ previousPost.slug }}/">{{ previousPost.title }} {% render "icon.html" icon: "arrow-long-right" width: 32
   , height: 32 %}</a>
-        </li>
-      {% endif %}
-      {% if nextPost %}
-        <li>
-          <a class="beneto-link link" href="/blog/{{ nextPost.slug }}">{{ nextPost.title }} {% render "icon.html" icon: "arrow-long-right" width: 32
+          </li>
+        {% endif %}
+        {% if nextPost %}
+          <li>
+            <a class="beneto-link link" href="/blog/{{ nextPost.slug }}">{{ nextPost.title }} {% render "icon.html" icon: "arrow-long-right" width: 32
   , height: 32 %}</a>
-        </li>
-      {% endif %}
-    </ul>
-  {% else %}
-    <ul class="beneto-icons">
-      {% for link in navigation %}
-        <li class="beneto-icon">
-          <a href="{{ link.permalink }}" target="_blank">{% render "icon.html" icon: link.icon width: 32
+          </li>
+        {% endif %}
+      </ul>
+    {% else %}
+      <ul class="beneto-icons">
+        {% for link in navigation %}
+          <li class="beneto-icon">
+            <a href="{{ link.permalink }}" target="_blank">{% render "icon.html" icon: link.icon width: 32
   , height: 32 %}<span class="sr-only">{{ link.text }}</span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   {% endif %}
   <div>
     <p>{{ benetoTitle }}</p>

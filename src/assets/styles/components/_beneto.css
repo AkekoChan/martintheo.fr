@@ -50,3 +50,8 @@
   ) {
   box-shadow: inset 300px 0 0 0 var(--purple) !important;
 }
+
+.beneto-no-posts {
+  font-size: 1.125rem !important;
+  color: var(--purple);
+}
