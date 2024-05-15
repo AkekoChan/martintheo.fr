@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  max-width: 72rem;
+  margin: auto;
 }
 
 .post-header {
@@ -48,5 +50,5 @@
 
 .post-content ul {
   list-style: circle;
-  padding-left: 3rem;
+  padding-left: 2rem;
 }
