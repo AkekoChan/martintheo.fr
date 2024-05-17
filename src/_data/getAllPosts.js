@@ -33,7 +33,7 @@ const getAllPosts = async () => {
   );
 
   const posts = await EleventyFetch(`${url}posts?${query}`, {
-    duration: "1d",
+    duration: "12h",
     type: "json",
   });
 

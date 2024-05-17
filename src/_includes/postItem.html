@@ -3,26 +3,18 @@
 <li class="post-item-{{ index }} {{ position }}">
   <a href="/blog/{{ post.slug }}/" class="gradient-{{ randomInt }}">
     <div class="post-item-container">
-      <span class="post-item-icon">{% render "icon.html" icon: "arrow-up-right"
-
- 
-
- 
-, stroke: "#171717" width:
- "32"
-
- 
-
- 
-, height: "32" %}</span>
-      <span class="post-item-date">{{ post.createdAt | formatDateFr }}</span>
+      <span class="post-item-icon"
+        >{% render "icon.html" icon: "arrow-up-right" , stroke: "#171717" width:
+        "32" , height: "32" %}</span
+      >
+      <span class="post-item-date">{{ post.date.createdAt | formatDateFr }}</span>
       <div class="post-item-wrapper">
         <h3 class="post-item-title">{{ post.title }}</h3>
         <p class="post-item-description">{{ post.description }}</p>
       </div>
       <div class="post-item-categories">
         {% for categorie in post.categories %}
-          <span class="badge-secondary">{{ categorie }}</span>
+        <span class="badge-secondary">{{ categorie }}</span>
         {% endfor %}
       </div>
     </div>
