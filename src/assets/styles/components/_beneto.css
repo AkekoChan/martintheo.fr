@@ -48,7 +48,7 @@
     .beneto-link:focus-visible,
     .beneto-link[aria-current]
   ) {
-  box-shadow: inset 300px 0 0 0 var(--purple) !important;
+  box-shadow: inset 1000px 0 0 0 var(--purple) !important;
 }
 
 .beneto-no-posts {
