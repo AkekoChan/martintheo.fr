@@ -43,6 +43,10 @@
   gap: 0.5rem;
 }
 
+.beneto-link svg {
+  min-width: 2rem;
+}
+
 :is(
     .beneto-link:hover,
     .beneto-link:focus-visible,
