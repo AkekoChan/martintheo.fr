@@ -49,15 +49,16 @@
     {% comment %} Open Graph / Facebook {% endcomment %}
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ page.url | toAbsoluteUrl}}" />
-    <meta property="og:title" content="{{ pageTitle }}" />
+    <meta property="og:title" content="{% if page.url == "/" %}{{ defaultPageTitle }}{% else %}{{ pageTitle }}{% endif %}" />
     <meta property="og:description" content="{{ description }}" />
+    <meta property="og:site_name" content="{{ defaultPageTitle }}"> 
     {% if openGraph.image %}
       <meta property="og:image" content="{{ openGraph.image }}" />
     {% endif %}
     {% comment %} Twitter {% endcomment %}
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="{{ page.url | toAbsoluteUrl}}" />
-    <meta property="twitter:title" content="{{ pageTitle }}" />
+    <meta property="twitter:title" content="{% if page.url == "/" %}{{ defaultPageTitle }}{% else %}{{ pageTitle }}{% endif %}" />
     <meta property="twitter:description" content="{{ description }}" />
     {% if openGraph.image %}
       <meta property="twitter:image" content="{{ openGraph.image }}" />

@@ -5,6 +5,8 @@ pagination:
   size: 1
   alias: post
 eleventyComputed:
+  # openGraph:
+  #   image: "https://v1.screenshot.11ty.dev{{ metadata.urlEleventy | append: page.url | encodeURL }}/opengraph/"
   title: "{{ post.title }}"
 permalink: "/blog/{{ post.slug }}/index.html"
 ---
@@ -31,7 +33,6 @@ permalink: "/blog/{{ post.slug }}/index.html"
           Posté le
           <span>{{ post.date.createdAt | formatDateFr }}</span>
           - modifié
- 
           le
           <span>{{ post.date.updatedAt | formatDateFr }}</span>
         </p>

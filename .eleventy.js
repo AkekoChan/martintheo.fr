@@ -14,6 +14,8 @@ const {
   markdownContent,
   readingTime,
   isInteresting,
+  toAbsoluteImageUrl,
+  encodeURL,
 } = require("./config/filters/index");
 const {
   faviconShortcode,
@@ -44,6 +46,7 @@ module.exports = (eleventyConfig) => {
 
   // Tous les filtres
   eleventyConfig.addFilter("toAbsoluteUrl", toAbsoluteUrl);
+  eleventyConfig.addFilter("toAbsoluteImageUrl", toAbsoluteImageUrl);
   eleventyConfig.addFilter("toISOString", toISOString);
   eleventyConfig.addFilter("excludeCSS", excludeCSS);
   eleventyConfig.addFilter("limit", limit);
@@ -59,6 +62,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter("fromJSON", JSON.parse);
   eleventyConfig.addFilter("readingTime", readingTime);
   eleventyConfig.addFilter("isInteresting", isInteresting);
+  eleventyConfig.addFilter("encodeURL", encodeURL);
 
   // Recognize CSS as a "template language"
   eleventyConfig.addTemplateFormats("css");

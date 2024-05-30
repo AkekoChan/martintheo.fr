@@ -124,6 +124,10 @@ const isInteresting = (arr) => {
   });
 };
 
+const encodeURL = (url) => {
+  return encodeURIComponent(url);
+};
+
 module.exports = {
   toAbsoluteUrl,
   toAbsoluteImageUrl,
@@ -139,4 +143,5 @@ module.exports = {
   markdownContent,
   readingTime,
   isInteresting,
+  encodeURL,
 };
