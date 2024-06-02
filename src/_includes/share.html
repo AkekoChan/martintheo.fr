@@ -31,6 +31,7 @@
         <li class="share-icon">
           <button
             class="share-social-btn"
+            id="share-social-btn{{forloop.index}}"
             data-social="{{ social[forloop.index0] }}"
             data-url="{{ url }}">{% render "icon.html"
   , icon: item

@@ -9,6 +9,9 @@
         {% if strokeWidth %},"strokeWidth": {{ strokeWidth }}{% endif %}
         {% if strokeLinecap %},"strokeLinecap": "{{ strokeLinecap }}"{% endif %}
         {% if strokeLinejoin %},"strokeLinejoin": "{{ strokeLinejoin }}"{% endif %}
+        {% if isDecorative != nil %},"isDecorative": {{ isDecorative }}{% endif %}
+        {% if role == true %},"role": "img"{% endif %}            
+        {% if ariaLabel %},"ariaLabel": "{{ ariaLabel }}"{% endif %}
     }
 {% endcapture %}
 {% assign props = props | fromJSON %}

@@ -16,7 +16,7 @@
           {% if isFirst %}
             <span class="sr-only">Première page</span>
           {% endif %}
-          {% if isLast %}
+          {% if isLast and isFirst != isLast %}
             <span class="sr-only">Dernière page</span>
           {% endif %}
         </a>

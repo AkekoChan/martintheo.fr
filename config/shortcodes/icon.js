@@ -14,6 +14,9 @@ const iconShortcode = (props) => {
     strokeLinecap = "round",
     strokeLinejoin = "round",
     stroke = "currentColor",
+    isDecorative = true,
+    role,
+    ariaLabel,
   } = props ?? {};
 
   const attributes = stringifyAttributes({
@@ -26,6 +29,10 @@ const iconShortcode = (props) => {
     "stroke-linecap": strokeLinecap,
     "stroke-linejoin": strokeLinejoin,
     stroke: stroke,
+    "aria-hidden": isDecorative ? true : false,
+    focusable: isDecorative ? false : true,
+    role: role,
+    "aria-label": ariaLabel,
   });
   const iconHTML = `<svg ${attributes}>
     <use xlink:href="${path.join(

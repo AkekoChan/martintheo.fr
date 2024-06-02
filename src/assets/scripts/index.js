@@ -13,6 +13,7 @@ console.log("Made with 💜");
       btnCloseModal: document.querySelector(".share-modal-btn"),
       modal: document.querySelector(".share-modal"),
       socialBtns: document.querySelectorAll(".share-social-btn"),
+      firstSocialBtn: document.querySelector("#share-social-btn1"),
     },
 
     /**
@@ -92,6 +93,7 @@ console.log("Made with 💜");
       App.DOM.modal.setAttribute("aria-expanded", true);
       App.DOM.modal.setAttribute("aria-hidden", true);
       App.DOM.btnOpenModal.setAttribute("aria-expanded", true);
+      App.DOM.firstSocialBtn.focus();
     },
     handleCloseModal: () => {
       App.DOM.modal.classList.remove("isOpen");
