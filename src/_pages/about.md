@@ -1,5 +1,6 @@
 ---
 layout: about
+title: A propos de moi
 description: Moi, c'est Théo Martin. Un jeu développeur web orienté sur la partie frontend. Je suis créatif et j'aime découvrir de nouvelles choses.
 permalink: "/about/"
 stylesheets:
@@ -13,7 +14,10 @@ eleventyComputed:
 
 # A propos de moi
 
+<figure>
 {% render "picture.html" src: "src/assets/images/theo_enorme.png", alt: "Une paire de lunettes stylisée, reflétant la personnalité et les passions du créateur du site.", className: "about-picture", imgClassName: "about-img img", isLazy: false %}
+<figcaption>Illustration par Sophie Gerreta</figcaption>
+</figure>
 
 Futur **développeur web** passionné par la création de sites web, je suis actuellement en stage à la **CDA de La Rochelle** où je mets en pratique mes compétences.
 
