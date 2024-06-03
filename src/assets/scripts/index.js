@@ -90,15 +90,13 @@ console.log("Made with 💜");
     },
     handleOpenModal: () => {
       App.DOM.modal.classList.add("isOpen");
-      App.DOM.modal.setAttribute("aria-expanded", true);
-      App.DOM.modal.setAttribute("aria-hidden", true);
+      App.DOM.modal.setAttribute("aria-hidden", false);
       App.DOM.btnOpenModal.setAttribute("aria-expanded", true);
       App.DOM.firstSocialBtn.focus();
     },
     handleCloseModal: () => {
       App.DOM.modal.classList.remove("isOpen");
-      App.DOM.modal.setAttribute("aria-expanded", false);
-      App.DOM.modal.setAttribute("aria-hidden", false);
+      App.DOM.modal.setAttribute("aria-hidden", true);
       App.DOM.btnOpenModal.setAttribute("aria-expanded", false);
     },
     handleShare: (e) => {
