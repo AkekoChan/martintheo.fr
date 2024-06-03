@@ -52,3 +52,7 @@
   list-style: circle;
   padding-left: 2rem;
 }
+
+.post h3 {
+  color: var(--purple);
+}
