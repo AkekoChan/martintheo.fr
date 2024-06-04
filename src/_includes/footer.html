@@ -23,8 +23,11 @@
         {% endfor %}
       </ul>
     </nav>
-    <p class="footer-made">Réalisé avec {% render "icon.html" icon: "heart"
-  , stroke: "#7B5199"
-  , className: "footer-icon" fill: "#7B5199", isDecorative: false, role: true, ariaLabel: "amour" %}</p>
+      <p class="footer-made">Réalisé avec {% render "icon.html" icon: "heart"
+    , stroke: "#7B5199"
+    , className: "footer-icon" fill: "#7B5199", isDecorative: false, role: true, ariaLabel: "amour" %}</p>
+    {% if permalink != "/legal/" %}
+      <a href="/legal/">Mentions légales</a>      
+    {% endif %}
   </div>
 </footer>
