@@ -4,6 +4,6 @@ const markdown = markdownIt({
   html: true,
   breaks: false,
   linkify: true,
-}).disable("code");
+});
 
 module.exports = markdown;

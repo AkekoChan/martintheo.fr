@@ -38,6 +38,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy(path.join(dir.input, dir.assets, "fonts"));
   eleventyConfig.addPassthroughCopy(path.join(imagePaths.input, "icons"));
   eleventyConfig.addPassthroughCopy(path.join(imagePaths.input, "effects"));
+  eleventyConfig.addPassthroughCopy(path.join(imagePaths.input, "cv"));
 
   // Tous les shortcodes
   eleventyConfig.addShortcode("favicon", faviconShortcode);

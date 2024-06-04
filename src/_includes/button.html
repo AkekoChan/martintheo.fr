@@ -1,0 +1,11 @@
+{% if isLink %}
+    <a href="{{ buttonLink }}" class="{{ buttonClass }}" {% if isDownload %}download{% endif %}>
+      {% render "icon.html" icon: buttonIcon, width: 32, height: 32 %}
+      {{ buttonText }}
+    </a>
+  {% else %}
+    <button class="{{ buttonClass }}">
+      {% render "icon.html" icon: buttonIcon, width: 32, height: 32 %}{{ buttonText }}
+      {{ buttonText }}
+    </button>
+{% endif %}
