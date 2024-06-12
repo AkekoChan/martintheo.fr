@@ -60,17 +60,17 @@
 .post pre {
   display: block;
   max-width: 100%;
-}
-.post code {
-  display: block;
   background: var(--purple);
   overflow-x: auto;
   color: var(--white);
+  border-radius: 2rem;
+  padding: 1.5rem;
+}
+/* .post code {
+  display: block;
   text-align: start;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  padding: 1rem;
-  border-radius: 2rem;
   max-width: 100%;
-}
+} */
