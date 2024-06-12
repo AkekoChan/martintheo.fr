@@ -4,3 +4,24 @@ title: "Portfolio"
 description: "Cette page est en construction."
 permalink: "/portfolio/"
 ---
+
+<section class="portfolio">
+  <ul class="card-container">
+    <li>
+      <article class="card">
+        <a href="#">
+          <h4 class="card-title">Flami {% render "icon.html" icon: "arrow-up-right", className: "card-title__icon" %}</h4>
+          <p class="card-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, ex ab.</p>
+          <p class="card-discover">Découvrir le projet {% render "icon.html" icon: "arrow-long-right", className: "card-discover__icon" %}</p>
+          <div class="card-thumb">
+            <img src="https://placehold.co/600x400" height="400" width="600" decoding="async" alt="">
+            <ul class="card-thumb__items">
+              <li class="card-thumb__item">Développement Web</li>
+              <li class="card-thumb__item">UX/UI Design</li>
+            </ul>
+          </div>
+        </a>
+      </article>
+    </li>
+  </ul>
+</section>
