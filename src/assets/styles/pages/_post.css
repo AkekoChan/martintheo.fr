@@ -57,9 +57,10 @@
   color: var(--purple);
 }
 
-.post pre {
+.post code {
+  display: block;
   background: var(--purple);
-  overflow: auto;
+  overflow-x: auto;
   color: var(--white);
   padding: 2rem;
   border-radius: 2rem;
