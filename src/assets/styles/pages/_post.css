@@ -70,6 +70,8 @@
 .post pre {
   padding: 1.5rem;
   background: var(--purple);
+  color: white;
+  border-radius: 1rem;
 }
 
 .post pre ::selection {
