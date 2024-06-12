@@ -57,15 +57,19 @@
   color: var(--purple);
 }
 
-.post pre {
+.post code {
   display: block;
+  background: none;
+  white-space: pre;
+  overflow-x: scroll;
   max-width: 100%;
-  background: var(--purple);
-  overflow-x: auto;
-  color: var(--white);
-  border-radius: 2rem;
+  min-width: 100px;
+  padding: 0;
+}
+
+.post pre {
   padding: 1.5rem;
-  white-space: break-spaces;
+  background: var(--purple);
 }
 
 .post pre ::selection {
