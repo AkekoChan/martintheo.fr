@@ -57,6 +57,10 @@
   color: var(--purple);
 }
 
+.post pre {
+  display: block;
+  max-width: 100%;
+}
 .post code {
   display: block;
   background: var(--purple);
@@ -66,6 +70,7 @@
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 2rem;
+  max-width: 100%;
 }
