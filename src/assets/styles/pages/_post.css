@@ -53,6 +53,14 @@
   padding-left: 2rem;
 }
 
-.post h3 {
+.post :is(h2, h3) {
   color: var(--purple);
+}
+
+.post pre {
+  background: var(--purple);
+  overflow: auto;
+  color: var(--white);
+  padding: 2rem;
+  border-radius: 2rem;
 }
