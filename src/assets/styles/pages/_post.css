@@ -57,6 +57,8 @@
   color: var(--purple);
 }
 
+/* TODO Trouver pourquoi le width bug  */
+
 .post code {
   display: block;
   background: none;
