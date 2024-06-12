@@ -68,7 +68,7 @@
   white-space: break-spaces;
 }
 
-.post pre::selection {
+.post pre ::selection {
   background: var(--light-purple);
   color: var(--black);
 }
