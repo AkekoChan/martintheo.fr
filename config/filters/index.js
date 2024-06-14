@@ -5,9 +5,25 @@ const { removeBaseDirectory } = require("../utils");
 const dayjs = require("dayjs");
 require("dayjs/locale/fr");
 const markdownIt = require("markdown-it");
+const hljs = require("highlight.js");
 
 const md = new markdownIt({
   html: true,
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return (
+          '<pre class="hljs"><code>' +
+          hljs.highlight(lang, str, true).value +
+          "</code></pre>"
+        );
+      } catch (__) {}
+    }
+
+    return (
+      '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + "</code></pre>"
+    );
+  },
 });
 
 dayjs.locale("fr");

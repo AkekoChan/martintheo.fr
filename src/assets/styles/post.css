@@ -1,0 +1,162 @@
+#main-content {
+  display: block;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: auto;
+}
+
+.post-header {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.post-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+:is(.post-date span, .post-reading span) {
+  color: var(--purple);
+  font-weight: 600;
+}
+.post-title {
+  font-size: 2rem;
+}
+
+:is(.post-categories, .post-actions) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.post-data {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post-content strong {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+.post-content ul {
+  list-style: circle;
+  padding-left: 2rem;
+}
+
+.post :is(h2, h3) {
+  color: var(--purple);
+}
+
+/* TODO Trouver pourquoi le width bug  */
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #7b5199; /* Couleur de fond violette */
+  color: #e0e0e0; /* Couleur de texte principal */
+  padding: 0.5em;
+}
+
+/* Mots-clés, tags, littéraux, sections, liens */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: #f8bbd0; /* Rose */
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #f9f7fc; /* Couleur de fond */
+  color: #3e3d3d; /* Couleur du texte principal */
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+/* Mots-clés, tags, littéraux, sections, liens */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: #9f75c0; /* Violet moyen */
+}
+
+/* Strings, titres, noms, types, built_in, noms builtin, nombres, classes */
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-number,
+.hljs-class {
+  color: #bd9dd5; /* Violet plus clair */
+}
+
+/* Commentaires, citations */
+.hljs-comment,
+.hljs-quote {
+  color: #6c4586; /* Violet foncé */
+  font-style: italic;
+}
+
+/* Doctags et métas */
+.hljs-doctag,
+.hljs-meta {
+  color: #7b5199; /* Violet principal */
+}
+
+/* Emphase forte */
+.hljs-strong,
+.hljs-emphasis {
+  font-weight: bold;
+}
+
+/* Variables, template variables, attributs, attr, symboles, bullets, code, deletions */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-attr,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-code,
+.hljs-deletion {
+  color: #5a3a6e; /* Violet plus foncé */
+}
+
+/* Insertions et ajouts */
+.hljs-addition {
+  color: #4c335c; /* Violet profond */
+}
+
+/* Fonctions et méthodes */
+.hljs-function {
+  color: #d5c2e5; /* Violet très clair */
+}
+
+/* Fond pour la ligne actuelle mise en surbrillance */
+.hljs-line-highlight {
+  background-color: #e7ddf1; /* Violet très clair */
+}
+
+/* Ajuste les numéros de ligne si applicable */
+.hljs-line-numbers {
+  color: #3e3d3d; /* Couleur du texte principal pour les numéros de ligne */
+}
