@@ -97,7 +97,7 @@
     grid-template-rows: auto;
   }
 
-  :is(.wide, .square, .tall) {
+  :is(.wide, .large, .tall) {
     grid-row: span 1;
     grid-column: span 1;
   }
