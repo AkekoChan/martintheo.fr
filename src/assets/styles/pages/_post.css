@@ -59,21 +59,12 @@
 
 /* TODO Trouver pourquoi le width bug  */
 
-/* .post code {
-  display: block;
-  background: none;
-  white-space: pre;
-  max-width: 100%;
-  min-width: 100px;
-  padding: 0;
-} */
-
 .post pre {
   padding: 1.5rem;
   background: var(--purple);
   color: white;
   border-radius: 1rem;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .post pre ::selection {
