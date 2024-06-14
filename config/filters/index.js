@@ -13,7 +13,7 @@ const md = new markdownIt({
     if (lang && hljs.getLanguage(lang)) {
       try {
         return (
-          '<pre class="hljs"><code tabindex="0">' +
+          '<pre class="hljs" tabindex="0"><code>' +
           hljs.highlight(lang, str, true).value +
           "</code></pre>"
         );
@@ -21,7 +21,7 @@ const md = new markdownIt({
     }
 
     return (
-      '<pre class="hljs"><code tabindex="0">' +
+      '<pre class="hljs" tabindex="0"><code>' +
       md.utils.escapeHtml(str) +
       "</code></pre>"
     );
