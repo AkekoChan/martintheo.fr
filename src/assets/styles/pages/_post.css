@@ -59,6 +59,10 @@
 
 /* TODO Trouver pourquoi le width bug  */
 
+.post code {
+  display: block;
+}
+
 .post pre {
   padding: 1.5rem;
   background: var(--purple);
