@@ -25,7 +25,7 @@ const {
 const browserslist = require("browserslist");
 const { bundle, browserslistToTargets } = require("lightningcss");
 const markdown = require("./config/plugins/markdown");
-const htmlmin = require("html-minifier");
+const { minify } = require("html-minifier-terser");
 const esbuild = require("esbuild");
 const { slugifyString } = require("./config/utils");
 
@@ -72,7 +72,7 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addTransform("htmlmin", (content, outputPath) => {
     if (outputPath.endsWith(".html")) {
-      return htmlmin.minify(content, {
+      return minify(content, {
         collapseWhitespace: true,
         removeComments: true,
         useShortDoctype: true,
