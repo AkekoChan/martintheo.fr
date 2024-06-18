@@ -106,7 +106,8 @@
 .hljs-built_in,
 .hljs-builtin-name,
 .hljs-number,
-.hljs-class {
+.hljs-class,
+.hljs-function {
   color: #bd9dd5; /* Violet plus clair */
 }
 
@@ -144,11 +145,6 @@
 /* Insertions et ajouts */
 .hljs-addition {
   color: #4c335c; /* Violet profond */
-}
-
-/* Fonctions et méthodes */
-.hljs-function {
-  color: #d5c2e5; /* Violet très clair */
 }
 
 /* Fond pour la ligne actuelle mise en surbrillance */
