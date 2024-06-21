@@ -20,7 +20,7 @@ module.exports = {
       text: "Mon GitHub",
     },
     {
-      permalink: "https://fr.linkedin.com/in/th%C3%A9o-martin-a4aba023a",
+      permalink: "https://fr.linkedin.com/in/th%C3%A9o-martinn",
       icon: "brand-linkedin",
       text: "Mon Linkedin",
     },
