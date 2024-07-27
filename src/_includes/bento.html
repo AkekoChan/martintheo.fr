@@ -1,0 +1,36 @@
+{% assign bentoTitle = title %}
+{% assign bentoText = text %}
+
+<div class="bento {% if isReverse %}bento-reverse{% endif %}">
+  {% if isBlog %}
+    {% if previousPost == null and nextPost == null %}
+      <p class="bento-no-posts">Il n'y pas d'autres articles pour l'instant !</p>
+    {% else %}
+      <ul class="bento-links">
+        {% if previousPost %}
+          <li>
+            <a class="bento-link link" href="/blog/{{ previousPost.slug }}/">{{ previousPost.title }} {% render "icon.html" icon: "arrow-long-right" width: 32, height: 32 %}</a>
+          </li>
+        {% endif %}
+        {% if nextPost %}
+          <li>
+            <a class="bento-link link" href="/blog/{{ nextPost.slug }}/">{{ nextPost.title }} {% render "icon.html" icon: "arrow-long-right" width: 32, height: 32 %}</a>
+          </li>
+        {% endif %}
+      </ul>
+    {% endif %}
+  {% else %}
+    <ul class="bento-icons">
+      {% for link in navigation %}
+        <li class="bento-icon">
+          <a href="{{ link.permalink }}" target="_blank">{% render "icon.html" icon: link.icon width: 32, height: 32 %}<span class="sr-only">{{ link.text }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <div>
+    <p>{{ bentoTitle }}</p>
+    <p>{{ bentoText }}</p>
+  </div>
+</div>

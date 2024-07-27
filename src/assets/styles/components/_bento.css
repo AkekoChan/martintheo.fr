@@ -1,0 +1,61 @@
+.bento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 1.5rem;
+  border-radius: 2rem;
+}
+
+.bento-reverse {
+  flex-direction: column-reverse;
+}
+
+.bento-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.bento p:first-child {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.bento p {
+  text-align: center;
+}
+
+.bento-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bento-link {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+.bento-icon a {
+  display: flex;
+}
+
+.bento-link svg {
+  min-width: 2rem;
+}
+
+:is(.bento-link:hover, .bento-link:focus-visible, .bento-link[aria-current]) {
+  box-shadow: inset 1000px 0 0 0 var(--purple) !important;
+}
+
+.bento-no-posts {
+  font-size: 1.125rem !important;
+  color: var(--purple);
+}

@@ -20,7 +20,7 @@
   flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .tags {
     gap: 1.5rem;
   }

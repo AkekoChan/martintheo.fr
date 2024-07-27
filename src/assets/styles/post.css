@@ -61,44 +61,23 @@
   color: var(--purple);
 }
 
-/* TODO Trouver pourquoi le width bug  */
-
 .hljs {
   display: block;
   overflow-x: auto;
-  background: #7b5199; /* Couleur de fond violette */
-  color: #e0e0e0; /* Couleur de texte principal */
-  padding: 0.5em;
-}
-
-/* Mots-clés, tags, littéraux, sections, liens */
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-section,
-.hljs-link {
-  color: #f8bbd0; /* Rose */
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #f9f7fc; /* Couleur de fond */
-  color: #3e3d3d; /* Couleur du texte principal */
+  background: var(--ghost-white);
+  color: var(--black-olive);
   padding: 1.5rem;
   border-radius: 1rem;
 }
 
-/* Mots-clés, tags, littéraux, sections, liens */
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-literal,
 .hljs-section,
 .hljs-link {
-  color: #9f75c0; /* Violet moyen */
+  color: var(--moutain-purple);
 }
 
-/* Strings, titres, noms, types, built_in, noms builtin, nombres, classes */
 .hljs-string,
 .hljs-title,
 .hljs-name,
@@ -108,29 +87,25 @@
 .hljs-number,
 .hljs-class,
 .hljs-function {
-  color: #bd9dd5; /* Violet plus clair */
+  color: var(--lenurple);
 }
 
-/* Commentaires, citations */
 .hljs-comment,
 .hljs-quote {
-  color: #6c4586; /* Violet foncé */
+  color: var(--dark-lavender);
   font-style: italic;
 }
 
-/* Doctags et métas */
 .hljs-doctag,
 .hljs-meta {
-  color: #7b5199; /* Violet principal */
+  color: var(--purple);
 }
 
-/* Emphase forte */
 .hljs-strong,
 .hljs-emphasis {
-  font-weight: bold;
+  font-weight: 600;
 }
 
-/* Variables, template variables, attributs, attr, symboles, bullets, code, deletions */
 .hljs-variable,
 .hljs-template-variable,
 .hljs-attribute,
@@ -139,20 +114,17 @@
 .hljs-bullet,
 .hljs-code,
 .hljs-deletion {
-  color: #5a3a6e; /* Violet plus foncé */
+  color: var(--imperial);
 }
 
-/* Insertions et ajouts */
 .hljs-addition {
-  color: #4c335c; /* Violet profond */
+  color: var(--english-violet);
 }
 
-/* Fond pour la ligne actuelle mise en surbrillance */
 .hljs-line-highlight {
-  background-color: #e7ddf1; /* Violet très clair */
+  background-color: var(--lavender);
 }
 
-/* Ajuste les numéros de ligne si applicable */
 .hljs-line-numbers {
-  color: #3e3d3d; /* Couleur du texte principal pour les numéros de ligne */
+  color: var(--black-olive);
 }

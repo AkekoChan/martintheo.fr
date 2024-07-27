@@ -22,7 +22,7 @@
   gap: 1.5rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .home-main-title {
     font-size: 2rem;
   }

@@ -16,11 +16,11 @@ eleventyComputed:
 
 <figure>
 {% render "picture.html" src: "src/assets/images/theo_enorme.png", alt: "Une paire de lunettes stylisée, reflétant la personnalité et les passions du créateur du site.", className: "about-picture", imgClassName: "about-img img", isLazy: false %}
-<figcaption>Illustration par Sophie Gerreta</figcaption>
+<figcaption>Illustration par Sophie Garreta</figcaption>
 </figure>
 
 <ul class="about-items"><li class="about-item">{% render "button.html" isLink: true, buttonText: "Mon Email", buttonClass: "about-btn", buttonLink: "mailto:artapp.theo@gmail.com", buttonIcon: "envelope" %}</li>
-    <li class="about-item">{% render "button.html" isLink: true, isDownload: true, buttonText: "Télécharger mon CV",buttonClass: "about-btn", buttonLink: "/assets/images/cv/placeholder-cv.pdf", buttonIcon: "download" %}</li></ul>
+    <li class="about-item">{% render "button.html" isLink: true, isDownload: true, buttonText: "Télécharger mon CV",buttonClass: "about-btn", buttonLink: "/assets/images/cv/cv.pdf", buttonIcon: "download" %}</li></ul>
 
 Futur **développeur web** passionné par la création de sites web, je suis actuellement en stage à la **CDA de La Rochelle** où je mets en pratique mes compétences.
 

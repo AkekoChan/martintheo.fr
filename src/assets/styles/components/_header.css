@@ -88,7 +88,7 @@
   bottom: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .header {
     padding: 2rem;
   }

@@ -47,11 +47,12 @@
   background: var(--white);
 }
 
-.badge-primary:hover {
+:is(.badge-primary:hover, .badge-primary:focus-visible) {
   background: var(--light-purple);
   color: var(--black);
 }
 
-.badge-primary:hover::before {
+.badge-primary:hover::before,
+.badge-primary:focus-visible::before {
   background: var(--black);
 }

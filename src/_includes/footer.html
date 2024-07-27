@@ -26,8 +26,17 @@
       <p class="footer-made">Réalisé avec {% render "icon.html" icon: "heart"
     , stroke: "#7B5199"
     , className: "footer-icon" fill: "#7B5199", isDecorative: false, role: true, ariaLabel: "amour" %}</p>
-    {% if permalink != "/legal/" %}
-      <a href="/legal/">Mentions légales</a>      
-    {% endif %}
+    <ul class="footer-links">
+      {% if permalink != "/legal/" %}
+       <li>
+        <a href="/legal/">Mentions légales</a>  
+       </li>     
+      {% endif %}
+      {% if permalink != "/site-plan/" %}
+        <li>
+          <a href="/site-plan/">Plan du site</a>      
+        </li>
+      {% endif %}    
+    </ul>
   </div>
 </footer>
