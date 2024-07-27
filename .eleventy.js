@@ -16,6 +16,8 @@ const {
   isInteresting,
   toAbsoluteImageUrl,
   encodeURL,
+  formatDateMonthAndYear,
+  sortByUrl,
 } = require("./config/filters/index");
 const {
   faviconShortcode,
@@ -64,6 +66,8 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter("readingTime", readingTime);
   eleventyConfig.addFilter("isInteresting", isInteresting);
   eleventyConfig.addFilter("encodeURL", encodeURL);
+  eleventyConfig.addFilter("formatDateMonthAndYear", formatDateMonthAndYear);
+  eleventyConfig.addFilter("sortByUrl", sortByUrl);
 
   // Recognize CSS as a "template language"
   eleventyConfig.addTemplateFormats("css");

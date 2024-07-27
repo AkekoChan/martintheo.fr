@@ -1,0 +1,10 @@
+<div class="accordion">
+  <button class="accordion-btn"><span class="accordion-number">{{ number }}</span>{{ title }}
+  {% render "icon.html" icon: "arrow-up-right",
+  className: "accordion-icon" %}</button>
+  <div class="accordion-collapse">
+    <p>
+      {{ text }}
+    </p>
+  </div>
+</div>

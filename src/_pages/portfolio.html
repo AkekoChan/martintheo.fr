@@ -1,27 +1,47 @@
 ---
-layout: wip
-title: "Portfolio"
-description: "Cette page est en construction."
+eleventyComputed:
+  title: "Portfolio"
 permalink: "/portfolio/"
+pagination:
+  data: getAllProjects
+  size: 4
+  alias: projects
 ---
-
+  
 <section class="portfolio">
+  <div class="portfolio__top-wrapper">
+    <h1 class="portfolio__title">Tous les projets</h1>
+    <p>Retrouvez l’ensemble de mes <strong>projets</strong> que j’ai réalisé.</p>
+  </div>
   <ul class="card-container">
+    {% for project in projects %}
     <li>
       <article class="card">
-        <a href="#">
-          <h4 class="card-title">Flami {% render "icon.html" icon: "arrow-up-right", className: "card-title__icon" %}</h4>
-          <p class="card-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, ex ab.</p>
-          <p class="card-discover">Découvrir le projet {% render "icon.html" icon: "arrow-long-right", className: "card-discover__icon" %}</p>
+        <a href="/portfolio/{{ project.slug }}">
+          <h2 class="card-title">
+            {{ project.title }} {% render "icon.html" icon: "arrow-up-right",
+            className: "card-title__icon" %}
+          </h2>
+          <p class="card-paragraph">{{ project.description }}</p>
+          <p class="card-discover">
+            Découvrir le projet {% render "icon.html" icon: "arrow-long-right",
+            className: "card-discover__icon" %}
+          </p>
           <div class="card-thumb">
-            <img src="https://placehold.co/600x400" height="400" width="600" decoding="async" alt="">
+            {% assign thumbURL = metadata.urlStrapi | append:
+            project.thumbnail.url %} {% render "picture.html" src: thumbURL ,
+            alt: post.thumbnail.alt , className: "about-picture" , imgClassName:
+            "card-thumb__img" , isLazy: false %}
             <ul class="card-thumb__items">
-              <li class="card-thumb__item">Développement Web</li>
-              <li class="card-thumb__item">UX/UI Design</li>
+              {% for service in project.services %}
+
+              <li class="card-thumb__item">{{service}}</li>
+              {% endfor %}
             </ul>
           </div>
         </a>
       </article>
     </li>
+    {% endfor %}
   </ul>
 </section>

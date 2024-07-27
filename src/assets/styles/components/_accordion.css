@@ -1,0 +1,49 @@
+.accordion {
+  border-bottom: 0.063rem var(--gray) solid;
+}
+
+.accordion-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: none;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1.25rem;
+  background: none;
+  cursor: pointer;
+  text-align: start;
+}
+
+.accordion-number {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--purple);
+}
+
+.accordion-icon {
+  margin-left: auto;
+  background: var(--dark-gray);
+  stroke: var(--gray);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.25rem;
+  transition: var(--easeOutSine);
+}
+
+.accordion-btn.isOpen .accordion-icon {
+  background: var(--purple);
+  stroke: var(--white);
+  transform: rotate(90deg);
+}
+
+.accordion-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: var(--easeOutSine);
+}
+
+.accordion-collapse p {
+  margin-bottom: 1rem;
+}

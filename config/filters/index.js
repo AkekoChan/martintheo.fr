@@ -80,6 +80,10 @@ const formatDateFr = (date) => {
   return dayjs(date).format("DD MMMM YYYY");
 };
 
+const formatDateMonthAndYear = (date) => {
+  return dayjs(date).format("MMMM YYYY");
+};
+
 const randomIntFromInterval = (_, min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
@@ -146,6 +150,14 @@ const encodeURL = (url) => {
   return encodeURIComponent(url);
 };
 
+const sortByUrl = (collection) => {
+  return collection.slice().sort((a, b) => {
+    if (a.url < b.url) return -1;
+    if (a.url > b.url) return 1;
+    return 0;
+  });
+};
+
 module.exports = {
   toAbsoluteUrl,
   toAbsoluteImageUrl,
@@ -155,6 +167,7 @@ module.exports = {
   random,
   randomIntFromInterval,
   sortByLikes,
+  sortByUrl,
   formatDateFr,
   previousPost,
   nextPost,
@@ -162,4 +175,5 @@ module.exports = {
   readingTime,
   isInteresting,
   encodeURL,
+  formatDateMonthAndYear,
 };
