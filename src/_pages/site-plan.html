@@ -1,0 +1,23 @@
+---
+layout: default
+title: Plan du site
+permalink: "/site-plan/"
+---
+
+<section class="site-plan">
+  <h1>Plan du site</h1>
+  <nav aria-label="Site plan">
+    <ul class="site-plan__items">
+      {% for page in collections.all | sortByUrl %} 
+        {% assign url = page.url |
+      excludeCSS %} {% if url %}
+      <li class="site-plan__item">
+        <a href="{{ url }}" class="badge-primary">
+          {% if url == "/" %} Accueil {% else %} {{ page.data.title }} {% endif
+          %}</a
+        >
+      </li>
+      {% endif %} {% endfor %}
+    </ul>
+  </nav>
+</section>

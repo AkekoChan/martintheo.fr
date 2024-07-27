@@ -1,5 +1,5 @@
 ---
-layout: legal
+layout: info
 title: Mentions Légales
 permalink: "/legal/"
 ---

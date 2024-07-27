@@ -1,0 +1,23 @@
+.site-plan {
+  display: flex;
+  flex-direction: column;
+  max-width: 52rem;
+  margin: auto;
+  gap: 1.5rem;
+}
+
+.site-plan h1 {
+  font-size: 2rem;
+}
+
+.site-plan__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 48rem) {
+  .site-plan h1 {
+    font-size: 1.5rem;
+  }
+}
