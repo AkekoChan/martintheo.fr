@@ -22,7 +22,7 @@ eleventyComputed:
 <ul class="about-items"><li class="about-item">{% render "button.html" isLink: true, buttonText: "Mon Email", buttonClass: "about-btn", buttonLink: "mailto:artapp.theo@gmail.com", buttonIcon: "envelope" %}</li>
     <li class="about-item">{% render "button.html" isLink: true, isDownload: true, buttonText: "Télécharger mon CV",buttonClass: "about-btn", buttonLink: "/assets/images/cv/cv.pdf", buttonIcon: "download" %}</li></ul>
 
-**Développeur web** passionné par la création de sites web, j'ai fini mon cursus universitaire. Je suis diplômé d'un BUT MMI (Métiers du Multimédia et de l'Internet) en option développement web..
+**Développeur web** passionné par la création de sites web, j'ai fini mon cursus universitaire. Je suis diplômé d'un **BUT MMI** (Métiers du Multimédia et de l'Internet) en option développement web.
 
 **Curieux** et à **l'affût des dernières** tendances du web, je suis en constante recherche de nouvelles connaissances et d'outils pour améliorer mes compétences.
 
