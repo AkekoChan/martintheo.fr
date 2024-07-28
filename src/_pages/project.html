@@ -54,7 +54,7 @@ permalink: "/portfolio/{{ project.slug }}/"
     <h2 class="project__title">Contexte du projet</h2>
     <div>
       {% assign formattedDate = project.date | formatDateMonthAndYear %}
-      {% assign isProduced = "Ce project a été réalisé en " | append: formattedDate | append: '.' %}
+      {% assign isProduced = "Ce projet a été réalisé en " | append: formattedDate | append: '.' %}
       {% render "accordion.html" number: "01", title: "Date de réalisation", text: isProduced %}
     
       {% assign allServices = project.services | join: ", " %}
