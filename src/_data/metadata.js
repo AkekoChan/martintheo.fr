@@ -18,7 +18,7 @@ module.exports = {
   author: "Théo Martin",
   email: "artapp.theo@gmail.com",
   description:
-    "Des articles, des réflexions et des anecdotes sur mon stage en développement web.",
+    "Des articles, des réflexions et des anecdotes sur le monde du développement web par Théo Martin",
   lang: "fr",
   themeColor: "#7B5199",
   backgroundColor: "#FEFEFE",
