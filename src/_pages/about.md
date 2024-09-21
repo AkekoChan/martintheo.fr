@@ -1,7 +1,7 @@
 ---
 layout: about
 title: A propos de moi
-description: Moi, c'est Théo Martin. Un jeu développeur web orienté sur la partie frontend. Je suis créatif et j'aime découvrir de nouvelles choses.
+description: Moi, c'est Théo Martin. Un jeune développeur web orienté sur la partie frontend. Je suis créatif et j'aime découvrir de nouvelles choses.
 permalink: "/about/"
 stylesheets:
   - /assets/styles/about.css
