@@ -4,17 +4,63 @@ layout: null
 eleventyExcludeFromCollections: true
 excludeFromSitemap: true
 ---
-{% comment %} Rework Soon {% endcomment %}
 <?xml version="1.0" encoding="UTF-8" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% assign lastmod = '2024-05-13' %}
+
+  {% assign urls = "" %}
+
   {% for page in collections.all %}
-    {% assign url = page.url | excludeCSS %}
-    {% if url and page.data.excludeFromSitemap != true %}
-      {% assign lastmod = page.data.lastUpdated | default: page.date %}
-      <url>
-        <loc>{{ metadata.urlEleventy }}{{ page.url }}</loc>
-        <lastmod>{{ lastmod | toISOString }}</lastmod>
-      </url>
-    {% endif %}
+    {% assign urlItems = urls | append: page.url | append: "," %}
+    {% assign urls = urlItems %}
+  {% endfor %}
+  
+  {% assign urls_array = urls | split: "," | uniq %}
+  
+
+  {% assign urls_filtered = urls_array | filteredUrls %}
+
+ {% for url in urls_filtered %}
+  <url>
+    <loc>{{ metadata.urlEleventy }}{{ url }}</loc>
+    <lastmod>{{ lastmod | toISOString }}</lastmod>
+  </url>
+  {% endfor %} 
+
+  <url>
+    <loc>{{ metadata.urlEleventy }}/portfolio/</loc>
+    <lastmod>{{ lastmod | toISOString }}</lastmod>
+  </url>
+
+  {% for project in getAllProjects %}
+    <url>
+      <loc>{{ metadata.urlEleventy }}/portfolio/{{ project.slug }}/</loc>
+      <lastmod>{{ lastmod | toISOString }}</lastmod>
+    </url>
+  {% endfor %}
+
+  <url>
+    <loc>{{ metadata.urlEleventy }}/blog/</loc>
+    <lastmod>{{ lastmod | toISOString }}</lastmod>
+  </url>
+
+  {% for article in getAllPosts %}
+    <url>
+      <loc>{{ metadata.urlEleventy }}/portfolio/{{ article.slug }}/</loc>
+      <lastmod>{{ lastmod | toISOString }}</lastmod>
+    </url>
+  {% endfor %}
+
+  
+  <url>
+    <loc>{{ metadata.urlEleventy }}/tags/</loc>
+    <lastmod>{{ lastmod | toISOString }}</lastmod>
+  </url>
+
+  {% for tag in getPostsByCategory %}
+    <url>
+      <loc>{{ metadata.urlEleventy }}{{ tag.href }}</loc>
+      <lastmod>{{ lastmod | toISOString }}</lastmod>
+    </url>
   {% endfor %}
 </urlset>

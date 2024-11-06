@@ -3,21 +3,94 @@ layout: default
 title: Plan du site
 permalink: "/site-plan/"
 ---
-{% comment %} Rework Soon {% endcomment %}
+
 <section class="site-plan">
   <h1>Plan du site</h1>
   <nav aria-label="Site plan">
     <ul class="site-plan__items">
-      {% for page in collections.all | sortByUrl %} 
-        {% assign url = page.url |
-      excludeCSS %} {% if url %}
+      {% assign urls = "" %}
+
+      {% for page in collections.all %}
+        {% assign urlItems = urls | append: page.url | append: "," %}
+        {% assign urls = urlItems %}
+      {% endfor %}
+      
+      {% assign urls_array = urls | split: "," | uniq %}
+      
+
+      {% assign urls_filtered = urls_array | filteredUrls %}
+
+      {% for url in urls_filtered %}
+        {% if url == "/" %}
+          <li class="site-plan__item">
+            <a href="{{ url }}" class="badge-primary">
+              Accueil</a
+            >
+          </li>
+          {% elsif url contains "about" %}
+            <li class="site-plan__item">
+              <a href="{{ url }}" class="badge-primary">
+                A propros de moi</a
+              >
+            </li>
+            {% elsif url contains "legal" %}
+              <li class="site-plan__item">
+                <a href="{{ url }}" class="badge-primary">
+                  Mentions Légales</a
+                >
+              </li>
+              {% elsif url contains "site-plan" %}
+                <li class="site-plan__item">
+                  <a href="{{ url }}" class="badge-primary">
+                    Site plan</a
+                  >
+                </li>
+        {% endif %}
+      {% endfor %}
+
       <li class="site-plan__item">
-        <a href="{{ url }}" class="badge-primary">
-          {% if url == "/" %} Accueil {% else %} {{ page.data.title }} {% endif
-          %}</a
+        <a href="/portfolio/" class="badge-primary">
+          Portfolio</a  
         >
       </li>
-      {% endif %} {% endfor %}
+
+      {% for project in getAllProjects %}
+        <li class="site-plan__item">
+              <a href="/portfolio/{{ project.slug }}/" class="badge-primary">
+                {{ project.title }}</a
+              >
+            </li>
+      {% endfor %}
+
+      <li class="site-plan__item">
+        <a href="/blog/" class="badge-primary">
+        Tous les articles</a
+        >
+      </li>
+
+      {% for article in getAllPosts %}
+        <li class="site-plan__item">
+              <a href="/blog/{{ article.slug }}/" class="badge-primary">
+                {{ article.title }}</a
+              >
+            </li>
+      {% endfor %}
+
+      
+      <li class="site-plan__item">
+        <a href="/tags/" class="badge-primary">
+        Toutes les catégories</a
+        >
+      </li>
+
+      {% for tag in getPostsByCategory %}
+        <li class="site-plan__item">
+              <a href="{{ tag.href }}" class="badge-primary">
+                Catégorie : {{ tag.title }}</a
+              >
+            </li>
+      {% endfor %}
+
     </ul>
   </nav>
 </section>

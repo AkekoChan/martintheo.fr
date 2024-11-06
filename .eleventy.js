@@ -4,7 +4,7 @@ const {
   toAbsoluteUrl,
   toISOString,
   random,
-  excludeCSS,
+  excludeURLs,
   limit,
   sortByLikes,
   formatDateFr,
@@ -18,6 +18,7 @@ const {
   encodeURL,
   formatDateMonthAndYear,
   sortByUrl,
+  filteredUrls,
 } = require("./config/filters/index");
 const {
   faviconShortcode,
@@ -51,7 +52,8 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter("toAbsoluteUrl", toAbsoluteUrl);
   eleventyConfig.addFilter("toAbsoluteImageUrl", toAbsoluteImageUrl);
   eleventyConfig.addFilter("toISOString", toISOString);
-  eleventyConfig.addFilter("excludeCSS", excludeCSS);
+  eleventyConfig.addFilter("excludeURLs ", excludeURLs);
+  eleventyConfig.addFilter("filteredUrls", filteredUrls);
   eleventyConfig.addFilter("limit", limit);
   eleventyConfig.addFilter("random", random);
   eleventyConfig.addFilter("sortByLikes", sortByLikes);

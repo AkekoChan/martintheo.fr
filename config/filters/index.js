@@ -62,10 +62,6 @@ const random = () => {
   return `${segment()}-${segment()}-${segment()}`;
 };
 
-const excludeCSS = (path) => {
-  return path.split(".").pop() !== "css" ? path : null;
-};
-
 const limit = (arr, limit) => {
   return arr.slice(0, limit);
 };
@@ -158,11 +154,21 @@ const sortByUrl = (collection) => {
   });
 };
 
+const filteredUrls = (urls) => {
+  return urls.filter((url) => !/\.css|portfolio|blog|tags/.test(url));
+};
+
+const excludeURLs = (path) => {
+  const excludedTerms = ["css", "portfolio", "blog", "tags"];
+
+  return excludedTerms.some((term) => path.includes(term)) ? null : path;
+};
+
 module.exports = {
   toAbsoluteUrl,
   toAbsoluteImageUrl,
   toISOString,
-  excludeCSS,
+  excludeURLs,
   limit,
   random,
   randomIntFromInterval,
@@ -176,4 +182,5 @@ module.exports = {
   isInteresting,
   encodeURL,
   formatDateMonthAndYear,
+  filteredUrls,
 };

@@ -59,8 +59,6 @@ const getAllProjects = async () => {
       []
     );
 
-    console.log(project.attributes);
-
     return {
       id: project.id,
       title: project.attributes.title,
