@@ -13,6 +13,9 @@ const PRE_CACHE_URLS = [
   "/assets/styles/main.css",
   "/assets/scripts/index.js",
   "/assets/images/icons/mynaui.symbol.svg",
+  "/assets/scripts/vendor/gsap.min.js",
+  "/assets/scripts/vendor/ScrollTrigger.min.js",
+  "/assets/scripts/vendor/lenis.min.js",
 ];
 
 const IGNORED_HOSTS = ["localhost"];

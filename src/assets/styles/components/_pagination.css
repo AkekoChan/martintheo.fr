@@ -14,7 +14,7 @@
   min-height: 2rem;
   background: var(--light-purple);
   border-radius: 0.5rem;
-  transition: all 0.2s cubic-bezier(0.61, 1, 0.88, 1);
+  transition: var(--easeOutSine);
 }
 
 .pagination-link a[aria-current] {

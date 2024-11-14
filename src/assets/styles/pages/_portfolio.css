@@ -47,6 +47,11 @@
   min-width: 2rem;
   min-height: 2rem;
   padding: 0.25rem;
+  transition: var(--easeOutSine);
+}
+
+:is(.card a:hover, .card a:focus-visible) .card-title__icon {
+  transform: rotate(90deg);
 }
 
 .card-paragraph {
@@ -138,6 +143,10 @@
 }
 
 @media (max-width: 64rem) {
+  .card-title {
+    gap: 1.5rem;
+  }
+
   .card-container {
     grid-template-columns: 1fr;
     gap: 2rem;

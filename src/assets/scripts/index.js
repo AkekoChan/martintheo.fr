@@ -15,6 +15,17 @@ console.log("Made with 💜");
       socialBtns: document.querySelectorAll(".share-social-btn"),
       firstSocialBtn: document.querySelector("#share-social-btn1"),
       btnsAccordion: document.querySelectorAll(".accordion-btn"),
+
+      portfolio: {
+        container: document.querySelector(".card-container"),
+        cards: document.querySelectorAll(".card"),
+      },
+      // header: {
+      //   logo: document.querySelector(".header-logo"),
+      //   links: document.querySelectorAll(".header-link"),
+      // },
+      // title: document.querySelector(".home-main-title"),
+      // paragraph: document.querySelector(".home-paragraph"),
     },
 
     /**
@@ -28,9 +39,16 @@ console.log("Made with 💜");
      * Mise en place des gestionnaires d'évènements.
      */
     app_handlers: function () {
-      window.addEventListener("resize", App.handleScreenResize);
+      // Fonctions d'initialisation
+      gsap.registerPlugin(ScrollTrigger);
       App.registerServiceWorker();
+      App.registerLenis();
+
+      // Fonctions générales
+      window.addEventListener("resize", App.handleScreenResize);
       App.handleOpenAccordion();
+      // App.handleRevealHeader();
+      App.handleScrollAnimation();
       App.DOM.menuIcon.addEventListener("click", App.handleMenuToggle);
       App.DOM.btnOpenModal?.addEventListener("click", App.handleOpenModal);
       App.DOM.btnCloseModal?.addEventListener("click", App.handleCloseModal);
@@ -59,6 +77,19 @@ console.log("Made with 💜");
           console.error(`L'enregistrement a échoué : ${error}`);
         }
       }
+    },
+    registerLenis: () => {
+      const lenis = new Lenis({
+        duration: 1.5,
+        touchMultiplier: 2,
+      });
+      lenis.on("scroll", ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+
+      gsap.ticker.lagSmoothing(0);
     },
     handleMenuToggle: () => {
       App.DOM.menuIcon.classList.toggle("is-open");
@@ -152,6 +183,111 @@ console.log("Made with 💜");
           }
         });
       }
+    },
+    handleRevealHeader: () => {
+      const logo = App.DOM.header.logo;
+      const links = App.DOM.header.links;
+
+      const headerTimeline = gsap.timeline();
+
+      headerTimeline
+        .fromTo(
+          logo,
+          { y: -30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "sine.out", delay: 0.2 }
+        )
+        .fromTo(
+          links,
+          {
+            y: -50,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            ease: "sine.out",
+            stagger: 0.2,
+            duration: 0.6,
+          }
+        );
+    },
+    handleScrollAnimation: () => {
+      gsap.registerEffect({
+        name: "fadeRotate",
+        effect: (targets, config) => {
+          return gsap.fromTo(
+            targets,
+            {
+              x: -125,
+              rotation: -15,
+              opacity: 0,
+              scale: 0.8,
+            },
+            {
+              x: 0,
+              rotation: 0,
+              opacity: 1,
+              scale: 1,
+              ease: "sine.out",
+              duration: config.duration,
+              delay: config.delay,
+              transformOrigin: "0 0",
+            }
+          );
+        },
+        defaults: { duration: 0.8, delay: 0.3 },
+      });
+
+      gsap.registerEffect({
+        name: "fadeInUp",
+        effect: (targets, config) => {
+          console.log(targets.children);
+          return gsap.fromTo(
+            targets,
+            {
+              y: 80,
+              opacity: 0,
+            },
+            {
+              y: 0,
+              opacity: 1,
+              delay: 0.5,
+              duration: config.duration,
+              stagger: config.stagger,
+              scrollTrigger: {
+                trigger: targets,
+                start: "top 80%",
+                toggleActions: "play none none none",
+                // markers: true,
+              },
+            }
+          );
+        },
+        defaults: { duration: 0.4, stagger: 0.2 },
+      });
+
+      // gsap.effects.fadeInUp(App.DOM.portfolio.card);
+      // gsap.effects.fadeRotate(App.DOM.title);
+
+      App.DOM.portfolio.cards.forEach((card, index) => {
+        gsap.fromTo(
+          card,
+          {
+            y: 80,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            scrollTrigger: {
+              trigger: card,
+              start: "top 80%",
+            },
+            delay: index * 0.2,
+          }
+        );
+      });
     },
   };
 

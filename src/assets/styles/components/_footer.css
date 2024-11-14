@@ -31,5 +31,32 @@
 
 .footer-made {
   display: flex;
+  align-items: center;
   gap: 0.25rem;
+}
+
+.footer-made:hover .footer-icon {
+  animation: heartbeat 2s cubic-bezier(0.61, 1, 0.88, 1) infinite;
+}
+
+/* A finir */
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.9);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.9);
+  }
+  60% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(0.9);
+  }
 }

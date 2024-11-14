@@ -46,6 +46,11 @@
         {% endif %}
         src="{{ script.src }}"></script>
     {% endfor %}
+    {% comment %} Other scripts  {% endcomment %}
+    <script defer src="/assets/scripts/vendor/gsap.min.js"></script>
+    <script defer src="/assets/scripts/vendor/ScrollTrigger.min.js"></script>
+    {% comment %} <script defer src="/assets/scripts/vendor/splitting.min.js"></script> {% endcomment %}
+    <script defer src="/assets/scripts/vendor/lenis.min.js"></script>
     {% comment %} Open Graph / Facebook {% endcomment %}
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ page.url | toAbsoluteUrl}}" />

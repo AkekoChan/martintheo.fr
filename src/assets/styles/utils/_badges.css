@@ -7,7 +7,7 @@
   position: relative;
   text-decoration: none;
   border-radius: 1.5rem;
-  transition: all 0.2s cubic-bezier(0.61, 1, 0.88, 1);
+  transition: var(--easeOutSine);
 }
 
 .badge-primary::before,
@@ -20,7 +20,7 @@
   width: 0.25rem;
   height: 0.25rem;
   border-radius: 50%;
-  transition: all 0.2s cubic-bezier(0.61, 1, 0.88, 1);
+  transition: var(--easeOutSine);
 }
 
 :is(.badge-primary .total-posts, .badge-secondary .total-posts) {

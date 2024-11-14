@@ -37,7 +37,7 @@
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  transition: transform 0.2s cubic-bezier(0.61, 1, 0.88, 1);
+  transition: var(--easeOutSine);
 }
 
 :is(.post-list a:hover, .post-list a:focus-visible) {
@@ -52,8 +52,12 @@
   position: absolute;
   right: 1.5rem;
   top: 1.5rem;
+  transition: var(--easeOutSine);
 }
 
+:is(.post-list a:hover, .post-list a:focus-visible) .post-item-icon {
+  transform: rotate(90deg);
+}
 .post-item-date {
   padding: 0.25rem 0.5rem;
   background: var(--white);
@@ -91,7 +95,16 @@
   border-radius: 2rem;
 }
 
-@media (max-width: 992px) {
+.post-item-description {
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+@media (max-width: 62rem) {
   .post-list {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
