@@ -279,7 +279,7 @@ console.log("Made with 💜");
           {
             y: 0,
             opacity: 1,
-            duration: 0.6,
+            duration: 0.3,
             scrollTrigger: {
               trigger: card,
               start: "top 80%",
