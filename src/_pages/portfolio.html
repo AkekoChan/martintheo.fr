@@ -29,12 +29,17 @@ pagination:
           </p>
           <div class="card-thumb">
             {% assign thumbURL = metadata.urlStrapi | append:
-            project.thumbnail.url %} {% render "picture.html" src: thumbURL ,
-            alt: post.thumbnail.alt , className: "about-picture" , imgClassName:
+            project.thumbnail.url %} 
+            {% if post.thumbnail.alt %}
+              {% assign altImg = post.thumbnail.alt %}
+              {% else %}
+              {% assign altImg = "" %}
+            {% endif %}
+            {% render "picture.html" src: thumbURL ,
+            alt: altImg , className: "about-picture" , imgClassName:
             "card-thumb__img" , isLazy: false %}
             <ul class="card-thumb__items">
               {% for service in project.services %}
-
               <li class="card-thumb__item">{{service}}</li>
               {% endfor %}
             </ul>
