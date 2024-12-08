@@ -47,7 +47,7 @@ permalink: "/portfolio/{{ project.slug }}/"
     {% else %}
     {% assign altFirstImg = "" %}
   {% endif %}
-  {% render "picture.html" src: firstImageURL , alt: firstImage.alt , className: "project__picture" , imgClassName: "project__img" , isLazy: false %} 
+  {% render "picture.html" src: firstImageURL , alt: altFirstImg , className: "project__picture" , imgClassName: "project__img" , isLazy: false %} 
   
   <div class="project__wrapper">
     <h2 class="project__title">A propos du projet</h2>
