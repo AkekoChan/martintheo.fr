@@ -42,6 +42,11 @@ permalink: "/portfolio/{{ project.slug }}/"
     </div>
     <p class="project__description">{{ project.description }}</p>
   </div>
+  {% if firstImage.alt %}
+    {% assign altFirstImg = firstImage.alt %}
+    {% else %}
+    {% assign altFirstImg = "" %}
+  {% endif %}
   {% render "picture.html" src: firstImageURL , alt: firstImage.alt , className: "project__picture" , imgClassName: "project__img" , isLazy: false %} 
   
   <div class="project__wrapper">
@@ -63,6 +68,11 @@ permalink: "/portfolio/{{ project.slug }}/"
 
   {% for image in mediasWithoutFirst %} 
     {% assign imageURL = metadata.urlStrapi | append: image.url %}
-    {% render "picture.html" src: imageURL , alt: image.alt , className: "project__picture" , imgClassName: "project__img" , isLazy: false %} 
+    {% if image.alt %}
+      {% assign altImg = image.alt %}
+      {% else %}
+      {% assign altImg = "" %}
+    {% endif %}
+    {% render "picture.html" src: imageURL , alt: altImg , className: "project__picture" , imgClassName: "project__img" , isLazy: false %} 
   {% endfor %}  
 </section>
