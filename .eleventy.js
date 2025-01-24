@@ -13,7 +13,7 @@ const {
   nextPost,
   markdownContent,
   readingTime,
-  isInteresting,
+  // isInteresting,
   toAbsoluteImageUrl,
   encodeURL,
   formatDateMonthAndYear,
@@ -66,7 +66,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter("toJSON", JSON.stringify);
   eleventyConfig.addFilter("fromJSON", JSON.parse);
   eleventyConfig.addFilter("readingTime", readingTime);
-  eleventyConfig.addFilter("isInteresting", isInteresting);
+  // eleventyConfig.addFilter("isInteresting", isInteresting);
   eleventyConfig.addFilter("encodeURL", encodeURL);
   eleventyConfig.addFilter("formatDateMonthAndYear", formatDateMonthAndYear);
   eleventyConfig.addFilter("sortByUrl", sortByUrl);
