@@ -136,11 +136,11 @@ const readingTime = (content) => {
   }
 };
 
-const isInteresting = (arr) => {
-  return arr.filter((post) => {
-    return post.isInteresting === true;
-  });
-};
+// const isInteresting = (arr) => {
+//   return arr.filter((post) => {
+//     return post.isInteresting === true;
+//   });
+// };
 
 const encodeURL = (url) => {
   return encodeURIComponent(url);
