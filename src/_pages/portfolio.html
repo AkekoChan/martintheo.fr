@@ -4,14 +4,16 @@ eleventyComputed:
 permalink: "/portfolio/"
 pagination:
   data: getAllProjects
-  size: 6
+  size: 7
   alias: projects
 ---
-  
+
 <section class="portfolio">
   <div class="portfolio__top-wrapper">
     <h1 class="portfolio__title">Tous les projets</h1>
-    <p>Retrouvez l’ensemble de mes <strong>projets</strong> que j’ai réalisé.</p>
+    <p>
+      Retrouvez l’ensemble de mes <strong>projets</strong> que j’ai réalisé.
+    </p>
   </div>
   <ul class="card-container">
     {% for project in projects %}
@@ -29,15 +31,11 @@ pagination:
           </p>
           <div class="card-thumb">
             {% assign thumbURL = metadata.urlStrapi | append:
-            project.thumbnail.url %} 
-            {% if post.thumbnail.alt %}
-              {% assign altImg = post.thumbnail.alt %}
-              {% else %}
-              {% assign altImg = "" %}
-            {% endif %}
-            {% render "picture.html" src: thumbURL ,
-            alt: altImg , className: "about-picture" , imgClassName:
-            "card-thumb__img" , isLazy: false %}
+            project.thumbnail.url %} {% if post.thumbnail.alt %} {% assign
+            altImg = post.thumbnail.alt %} {% else %} {% assign altImg = "" %}
+            {% endif %} {% render "picture.html" src: thumbURL , alt: altImg ,
+            className: "about-picture" , imgClassName: "card-thumb__img" ,
+            isLazy: false %}
             <ul class="card-thumb__items">
               {% for service in project.services %}
               <li class="card-thumb__item">{{service}}</li>
