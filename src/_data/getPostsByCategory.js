@@ -1,6 +1,6 @@
-const lodash = require("lodash");
-const { getAllUniqueKeyValues, slugifyString } = require("../../config/utils");
-const getAllPosts = require("./getAllPosts");
+import lodash from "lodash";
+import { getAllUniqueKeyValues, slugifyString } from "../../config/utils.js";
+import getAllPosts from "./getAllPosts.js";
 
 const getPostsByCategory = async () => {
   const allPosts = await getAllPosts();
@@ -42,4 +42,4 @@ const getPostsByCategory = async () => {
   );
 };
 
-module.exports = getPostsByCategory;
+export default getPostsByCategory;

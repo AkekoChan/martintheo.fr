@@ -1,4 +1,4 @@
-const markdownIt = require("markdown-it");
+import markdownIt from "markdown-it";
 
 const markdown = markdownIt({
   html: true,
@@ -6,4 +6,4 @@ const markdown = markdownIt({
   linkify: true,
 });
 
-module.exports = markdown;
+export default markdown;

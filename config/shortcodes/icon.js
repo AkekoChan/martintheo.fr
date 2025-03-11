@@ -1,6 +1,6 @@
-const { imagePaths } = require("../constants");
-const path = require("path");
-const { removeBaseDirectory, stringifyAttributes } = require("../utils");
+import path from "path";
+import { imagePaths } from "../constants.js";
+import { removeBaseDirectory, stringifyAttributes } from "../utils.js";
 
 const iconShortcode = (props) => {
   const {
@@ -44,4 +44,4 @@ const iconShortcode = (props) => {
   return iconHTML;
 };
 
-module.exports = iconShortcode;
+export default iconShortcode;

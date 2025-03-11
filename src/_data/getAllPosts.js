@@ -1,8 +1,9 @@
-const qs = require("qs");
-const EleventyFetch = require("@11ty/eleventy-fetch");
-const metadata = require("./metadata");
+import EleventyFetch from "@11ty/eleventy-fetch";
+import dotenv from "dotenv";
+import qs from "qs";
+import metadata from "./metadata.js";
 
-require("dotenv").config();
+dotenv.config();
 
 const getAllPosts = async () => {
   const url = `${metadata.urlStrapi}/api/`;
@@ -33,7 +34,7 @@ const getAllPosts = async () => {
   );
 
   const posts = await EleventyFetch(`${url}posts?${query}`, {
-    duration: "12h",
+    duration: "1w",
     type: "json",
   });
 
@@ -67,4 +68,4 @@ const getAllPosts = async () => {
   return formattedPosts.reverse();
 };
 
-module.exports = getAllPosts;
+export default getAllPosts;

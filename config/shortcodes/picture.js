@@ -1,7 +1,6 @@
-const Image = require("@11ty/eleventy-img");
-const { stringifyAttributes } = require("../utils");
-const { imagePaths } = require("../constants");
-const { removeBaseDirectory } = require("../utils");
+import Image from "@11ty/eleventy-img";
+import { imagePaths } from "../constants.js";
+import { removeBaseDirectory, stringifyAttributes } from "../utils.js";
 
 const pictureShortcode = async (props) => {
   const {
@@ -66,5 +65,4 @@ const pictureShortcode = async (props) => {
 
   return `${picture}`;
 };
-
-module.exports = pictureShortcode;
+export default pictureShortcode;

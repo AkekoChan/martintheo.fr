@@ -1,40 +1,36 @@
-const path = require("path");
-const { dir, imagePaths, scriptDirs } = require("./config/constants");
-const {
+import browserslist from "browserslist";
+import esbuild from "esbuild";
+import { minify } from "html-minifier-terser";
+import { browserslistToTargets, bundle } from "lightningcss";
+import path from "path";
+import { dir, imagePaths, scriptDirs } from "./config/constants.js";
+import {
+  encodeURL,
+  excludeURLs,
+  filteredUrls,
+  formatDateFr,
+  formatDateMonthAndYear,
+  isInteresting,
+  limit,
+  markdownContent,
+  nextPost,
+  previousPost,
+  random,
+  randomIntFromInterval,
+  readingTime,
+  sortByLikes,
+  sortByUrl,
+  toAbsoluteImageUrl,
   toAbsoluteUrl,
   toISOString,
-  random,
-  excludeURLs,
-  limit,
-  sortByLikes,
-  formatDateFr,
-  randomIntFromInterval,
-  previousPost,
-  nextPost,
-  markdownContent,
-  readingTime,
-  isInteresting,
-  toAbsoluteImageUrl,
-  encodeURL,
-  formatDateMonthAndYear,
-  sortByUrl,
-  filteredUrls,
-} = require("./config/filters/index");
-const {
-  faviconShortcode,
-  iconShortcode,
-  pictureShortcode,
-} = require("./config/shortcodes/index");
-const browserslist = require("browserslist");
-const { bundle, browserslistToTargets } = require("lightningcss");
-const markdown = require("./config/plugins/markdown");
-const { minify } = require("html-minifier-terser");
-const esbuild = require("esbuild");
-const { slugifyString } = require("./config/utils");
-const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
+} from "./config/filters/index.js";
+import markdown from "./config/plugins/markdown.js";
+import faviconShortcode from "./config/shortcodes/favicon.js";
+import iconShortcode from "./config/shortcodes/icon.js";
+import pictureShortcode from "./config/shortcodes/picture.js";
+import { slugifyString } from "./config/utils.js";
 
-module.exports = (eleventyConfig) => {
-  eleventyConfig.addPlugin(UpgradeHelper);
+export default (eleventyConfig) => {
   // Configuration des fichiers statiques
   eleventyConfig.addWatchTarget(imagePaths.input);
   eleventyConfig.addWatchTarget(scriptDirs.input);

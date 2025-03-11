@@ -1,4 +1,4 @@
-const dotenv = require("dotenv");
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ const envVariables = {
   },
 };
 
-module.exports = {
+export default {
   title: "Le blog dev de Théo Martin",
   author: "Théo Martin",
   email: "artapp.theo@gmail.com",

@@ -1,7 +1,7 @@
-const path = require("path");
-const slugify = require("slugify");
+import path from "path";
+import slugify from "slugify";
 
-const getAllUniqueKeyValues = (items, key) => {
+export const getAllUniqueKeyValues = (items, key) => {
   // récupération des données de la collection
   let values = items.map((item) => item[key] ?? []);
   // création d'un nouveau tableau à une dimension
@@ -16,7 +16,7 @@ const getAllUniqueKeyValues = (items, key) => {
 };
 
 /** Convertir un string en slug */
-const slugifyString = (str) => {
+export const slugifyString = (str) => {
   return slugify(str, {
     replacement: "-",
     remove: /[#,&,+()$~%.'":*?<>{}]/g,
@@ -29,7 +29,7 @@ const slugifyString = (str) => {
  * @param {*} attributeMap
  * @returns
  */
-const stringifyAttributes = (attributeMap) => {
+export const stringifyAttributes = (attributeMap) => {
   return Object.entries(attributeMap)
     .map(([attribute, value]) => {
       return typeof value === "undefined" ? "" : `${attribute}="${value}"`;
@@ -42,11 +42,5 @@ const stringifyAttributes = (attributeMap) => {
  * @param {*} str
  * @returns
  */
-const removeBaseDirectory = (str) => str.substring(str.indexOf(path.sep));
-
-module.exports = {
-  getAllUniqueKeyValues,
-  slugifyString,
-  stringifyAttributes,
-  removeBaseDirectory,
-};
+export const removeBaseDirectory = (str) =>
+  str.substring(str.indexOf(path.sep));

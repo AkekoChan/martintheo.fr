@@ -1,7 +1,7 @@
-const path = require("path");
-const Image = require("@11ty/eleventy-img");
-const { imagePaths } = require("../constants");
-const { removeBaseDirectory, stringifyAttributes } = require("../utils");
+import Image from "@11ty/eleventy-img";
+import path from "path";
+import { imagePaths } from "../constants.js";
+import { removeBaseDirectory, stringifyAttributes } from "../utils.js";
 
 let cache = {};
 
@@ -33,5 +33,4 @@ const faviconShortcode = async (src) => {
 
   return cache[src];
 };
-
-module.exports = faviconShortcode;
+export default faviconShortcode;

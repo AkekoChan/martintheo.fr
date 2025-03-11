@@ -1,8 +1,9 @@
-const qs = require("qs");
-const EleventyFetch = require("@11ty/eleventy-fetch");
-const metadata = require("./metadata");
+import EleventyFetch from "@11ty/eleventy-fetch";
+import dotenv from "dotenv";
+import qs from "qs";
+import metadata from "./metadata.js";
 
-require("dotenv").config();
+dotenv.config();
 
 const getAllProjects = async () => {
   const url = `${metadata.urlStrapi}/api/`;
@@ -80,4 +81,4 @@ const getAllProjects = async () => {
   return formattedProjects;
 };
 
-module.exports = getAllProjects;
+export default getAllProjects;
