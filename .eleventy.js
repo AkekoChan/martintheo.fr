@@ -31,8 +31,10 @@ const markdown = require("./config/plugins/markdown");
 const { minify } = require("html-minifier-terser");
 const esbuild = require("esbuild");
 const { slugifyString } = require("./config/utils");
+const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
 
 module.exports = (eleventyConfig) => {
+  eleventyConfig.addPlugin(UpgradeHelper);
   // Configuration des fichiers statiques
   eleventyConfig.addWatchTarget(imagePaths.input);
   eleventyConfig.addWatchTarget(scriptDirs.input);
