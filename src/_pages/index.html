@@ -3,25 +3,50 @@ permalink: "/"
 ---
 
 <section class="home-hero">
-  <h1 class="home-main-title">
-    Salut, je suis
-    <span>Théo</span>
-  </h1>
-  <p class="home-paragraph">
-    Plongez dans mon univers : articles,
-    réflexions et anecdotes vous attendent ! Découvrez
-    <a href="/blog/">mes articles</a> ou
-    <a href="/about/">apprenez-en plus sur moi.</a>
-  </p>
+    <h1 class="home-main-title">
+      <span>Salut,</span> <br>
+      <span>Je suis <span class="highlight">Théo</span>,</span>
+      <br>
+      <span>Dev front &</span> <br>
+      <span>Designer web</span>
+      <svg width="40" height="35" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.7771 4.55172C28.0242 -2.42862 36.768 3.22561 38.5 9.5C40.1559 15.4987 37.4075 21.4572 31.3359 23.0932C28.0967 23.9661 23.479 24.8827 20.8487 28.0013C18.0888 31.2733 17.5368 34 12.5692 34C5.2599 33.9999 2.84386 31.2381 1.52986 26.9106C-0.12599 21.4572 1.52996 11.5321 14.7771 4.55172Z" fill="#7B5199" stroke="#7B5199"/>
+      </svg>
+    </h1>
+  <div class="home-hero-about">
+    <a href="/about/">
+      À propos de moi  
+      {% render "icon.html", icon: "arrow-long-right", width: 32, height: 32 %}
+    </a>
+
+    <p>J’aime façonner des expériences web où design et code se rencontrent. À la croisée de l’UI et du développement front-end, je cherche à créer des interfaces fluides, esthétiques et accessibles. Entre créativité et technique, chaque projet est pour moi l’occasion d’explorer de nouvelles idées.</p>
+  </div>
+
+  <div class="home-hero-scroll">
+    {% render "icon.html", icon: "arrow-long-down", width: 32, height: 32 %}
+    scroll
+  </div>
+
 </section>
+
+<section class="home-services">
+  <h2 class="home-title">Services</h2>
+
+  <div>
+    {% for service in services %}
+      {% render "accordion.html" number: service.id, title: service.label, text: service.text %}
+    {% endfor %}
+  </div>
+</section>
+
 <section class="home-last">
   <h2 class="home-title">Les Derniers Articles</h2>
-  {% assign recentPosts = getAllPosts | limit: 4 %} {% render "postList.html"
-  posts: recentPosts, layoutGrid: "tall,square,tall,square" %}
+  {% assign recentPosts = getAllPosts | limit: 3 %} 
+  {% render "postList.html" posts: recentPosts, layoutGrid: "tall,square,square" %}
 </section>
-<section class="home-most-liked">
-  <h2 class="home-title">Les Articles les plus Intéressants</h2>
-  {% assign mostLikesPosts = getAllPosts | isInteresting %} {% render
-  "postList.html" posts: mostLikesPosts, layoutGrid: "square,wide,wide,square"
-  %}
-</section>
+{% comment %} <section class="home-most-liked">
+                    <h2 class="home-title">Les Articles les plus Intéressants</h2>
+                    {% assign mostLikesPosts = getAllPosts | isInteresting %} {% render
+                    "postList.html" posts: mostLikesPosts, layoutGrid: "square,wide,wide,square"
+                    %}
+</section> {% endcomment %}

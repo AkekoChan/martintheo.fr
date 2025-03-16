@@ -8,6 +8,7 @@ console.log("Made with 💜");
     DOM: {
       menuIcon: document.querySelector(".header-open-nav"),
       menuNav: document.querySelector(".header-nav"),
+      homeTitle: document.querySelector(".home-main-title"),
       btnLike: document.querySelector(".like"),
       btnOpenModal: document.querySelector(".share-btn"),
       btnCloseModal: document.querySelector(".share-modal-btn"),
@@ -48,6 +49,7 @@ console.log("Made with 💜");
       window.addEventListener("resize", App.handleScreenResize);
       App.handleOpenAccordion();
       // App.handleRevealHeader();
+      // App.handleRevealHero();
       App.handleScrollAnimation();
       App.DOM.menuIcon.addEventListener("click", App.handleMenuToggle);
       App.DOM.btnOpenModal?.addEventListener("click", App.handleOpenModal);
@@ -288,6 +290,11 @@ console.log("Made with 💜");
           }
         );
       });
+    },
+    handleRevealHero: () => {
+      const { homeTitle } = App.DOM;
+      if (!homeTitle) return;
+      const title = new SplitType(App.DOM.homeTitle, { types: "words" });
     },
   };
 
