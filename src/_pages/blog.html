@@ -5,9 +5,9 @@ eleventyComputed:
 permalink: "/blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | plus:1 }}/{% endif %}"
 pagination:
   data: getAllPosts
-  size: 4
+  size: 3
   alias: posts
 ---
 
-{% render "postList.html" posts: posts, layoutGrid: "square,tall,tall,square" %}
+{% render "postList.html" posts: posts, layoutGrid: "square,square,wide" %}
 {% render "pagination.html" hrefs: pagination.hrefs, page: page %}
