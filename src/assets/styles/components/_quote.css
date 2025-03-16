@@ -1,0 +1,19 @@
+.quote {
+  background: var(--ghost-white);
+  border-left: solid var(--purple) 0.1875rem;
+  padding: 2rem 1.5rem;
+}
+
+.quote p {
+  color: var(--imperial);
+  font-weight: 600;
+}
+
+.quote span {
+  font-size: 1.5rem;
+}
+
+.quote cite {
+  font-weight: 600;
+  color: var(--black);
+}

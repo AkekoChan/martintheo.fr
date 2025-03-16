@@ -59,3 +59,13 @@
   font-size: 1.125rem !important;
   color: var(--purple);
 }
+
+.bento-email {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.bento-email span {
+  color: var(--purple);
+}

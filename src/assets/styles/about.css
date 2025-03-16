@@ -25,13 +25,7 @@ strong {
   padding: 0.75rem 1rem;
   border-radius: 1.125rem;
   transition: var(--easeOutSine);
-}
-
-.about-items {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  width: fit-content;
 }
 
 :is(.about-btn:hover, .about-btn:focus-visible) {

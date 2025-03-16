@@ -31,6 +31,9 @@
   {% endif %}
   <div>
     <p>{{ bentoTitle }}</p>
+    {% if hasEmail %}
+      <p class="bento-email">Dites bonjour - <span>artapp.theo@gmail.com</span></p>
+    {% endif %}
     <p>{{ bentoText }}</p>
   </div>
 </div>
