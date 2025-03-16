@@ -1,7 +1,7 @@
 .site-plan {
   display: flex;
   flex-direction: column;
-  max-width: 72rem;
+  max-width: 80rem;
   margin: auto;
   gap: 1.5rem;
 }
