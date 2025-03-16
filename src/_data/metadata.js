@@ -14,11 +14,11 @@ const envVariables = {
 };
 
 export default {
-  title: "Le blog dev de Théo Martin",
+  title: "Théo Martin - Développement front-end & Design web",
   author: "Théo Martin",
   email: "artapp.theo@gmail.com",
   description:
-    "Des articles, des réflexions et des anecdotes sur le monde du développement web par Théo Martin",
+    "Plongez dans mes créations et articles, où le code et le design s’allient pour des résultats percutants, par Théo Martin.",
   lang: "fr",
   themeColor: "#7B5199",
   backgroundColor: "#FEFEFE",
