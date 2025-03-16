@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   padding: 2rem 6rem;
-  width: 100vw;
+  width: 100%;
   background-color: var(--white);
   border-bottom: 0.0625rem solid var(--gray);
 }

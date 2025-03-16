@@ -1,7 +1,7 @@
 .footer {
   border-top: 0.0625rem solid var(--gray);
   padding: 2rem;
-  width: 100vw;
+  width: 100%;
 }
 
 .footer-title {
