@@ -32,6 +32,11 @@
   transition: var(--easeOutSine);
 }
 
+.accordion-btn:hover .accordion-icon {
+  background: var(--purple);
+  stroke: var(--white);
+}
+
 .accordion-btn.isOpen .accordion-icon {
   background: var(--purple);
   stroke: var(--white);

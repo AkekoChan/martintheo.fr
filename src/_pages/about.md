@@ -34,5 +34,5 @@ Si une phrase résume bien ma vision, c'est celle-ci :
 {% render "quote.html" quote: "J'ai envie de me retrouver dans la phase de l'élève qui apprend.", cite: "Damso"  %}
 
 <ul class="about-items">
-    <li class="about-item">{% render "button.html" isLink: true, isDownload: true, buttonText: "Télécharger mon CV", buttonClass: "about-btn", buttonLink: "/assets/images/cv/cv.pdf", buttonIcon: "download" %}</li>
+    <li class="about-item">{% render "button.html" isLink: true, isDownload: true, buttonText: "Télécharger mon CV", buttonClass: "about-btn", buttonLink: "", buttonIcon: "download" %}</li>
 </ul>
