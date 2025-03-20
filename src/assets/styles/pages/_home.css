@@ -1,8 +1,8 @@
 .home-hero,
 .home-last,
 .home-services {
-  max-width: 80rem;
   width: 100%;
+  max-width: 87.5rem;
   margin: auto;
 }
 
@@ -16,32 +16,41 @@
 .home-main-title {
   text-transform: uppercase;
   text-align: center;
-  position: relative;
   width: fit-content;
+  display: flex;
+  flex-direction: column;
 }
 
-.home-main-title {
+.home-main-title-wrapper {
+  position: relative;
+}
+
+.home-main-title div span {
   font-size: 6rem;
+  line-height: normal;
 }
 
-.home-main-title svg {
+.home-main-title div {
+  margin-top: -1rem;
+}
+
+.home-main-title-wrapper svg {
   position: absolute !important;
   left: -3%;
-  bottom: 18%;
-  translate: -3% -18%;
+  bottom: 24%;
   width: 7.8125rem;
   height: 7.1875rem;
 }
 
-.home-main-title > span:nth-of-type(2) {
+.home-main-title > div:nth-of-type(2) > span {
   padding-right: 9rem;
 }
 
-.home-main-title > span:nth-of-type(3) {
+.home-main-title > div:nth-of-type(3) > span {
   padding-left: 4.5rem;
 }
 
-.home-main-title > span:nth-of-type(4) {
+.home-main-title > div:nth-of-type(4) > span {
   padding-left: 1.5rem;
 }
 
@@ -61,7 +70,8 @@
   padding-top: 1.5rem;
 }
 
-.home-hero-about a {
+.home-hero-about a,
+.home-services a {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -75,9 +85,14 @@
   height: fit-content;
 }
 
-:is(.home-hero-about a:hover, .home-hero-about a:focus-visible) {
+.home-hero-about :is(a:hover, a:focus-visible),
+.home-services :is(a:hover, a:focus-visible) {
   background: var(--light-purple);
   color: var(--black);
+}
+
+.home-services a {
+  margin-top: 1.5rem;
 }
 
 .home-hero-about p {
@@ -107,24 +122,28 @@
 }
 
 @media (max-width: 64rem) {
-  .home-main-title {
+  .home-main-title div span {
     font-size: 4rem;
   }
 
-  .home-main-title svg {
+  .home-main-title div {
+    margin-top: -0.5rem;
+  }
+
+  .home-main-title-wrapper svg {
     width: 5rem;
     height: 4.375rem;
   }
 
-  .home-main-title > span:nth-of-type(2) {
+  .home-main-title > div:nth-of-type(2) > span {
     padding-right: 6rem;
   }
 
-  .home-main-title > span:nth-of-type(3) {
+  .home-main-title > div:nth-of-type(3) > span {
     padding-left: 3rem;
   }
 
-  .home-main-title > span:nth-of-type(4) {
+  .home-main-title > div:nth-of-type(4) > span {
     padding-left: 1rem;
   }
 
@@ -140,24 +159,28 @@
 }
 
 @media (max-width: 48rem) {
-  .home-main-title {
+  .home-main-title div span {
     font-size: 2rem;
   }
 
-  .home-main-title svg {
+  .home-main-title div {
+    margin-top: -0.25rem;
+  }
+
+  .home-main-title-wrapper svg {
     width: 2.5rem;
     height: 2.1875rem;
   }
 
-  .home-main-title > span:nth-of-type(2) {
+  .home-main-title > div:nth-of-type(2) > span {
     padding-right: 3rem;
   }
 
-  .home-main-title > span:nth-of-type(3) {
+  .home-main-title > div:nth-of-type(3) > span {
     padding-left: 1.5rem;
   }
 
-  .home-main-title > span:nth-of-type(4) {
+  .home-main-title > div:nth-of-type(4) > span {
     padding-left: 0.5rem;
   }
 

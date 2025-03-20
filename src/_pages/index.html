@@ -3,21 +3,25 @@ permalink: "/"
 ---
 
 <section class="home-hero">
+  <div class="home-main-title-wrapper">
     <h1 class="home-main-title">
-      <span>Salut,</span> <br>
+      <span>Salut,</span>
       <span>Je suis <span class="highlight">Théo</span>,</span>
-      <br>
-      <span>Dev front &</span> <br>
+      <span>Dev front &</span>
       <span>Designer web</span>
-      <svg width="40" height="35" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14.7771 4.55172C28.0242 -2.42862 36.768 3.22561 38.5 9.5C40.1559 15.4987 37.4075 21.4572 31.3359 23.0932C28.0967 23.9661 23.479 24.8827 20.8487 28.0013C18.0888 31.2733 17.5368 34 12.5692 34C5.2599 33.9999 2.84386 31.2381 1.52986 26.9106C-0.12599 21.4572 1.52996 11.5321 14.7771 4.55172Z" fill="#7B5199" stroke="#7B5199"/>
+      </h1>
+      <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.670591 15.2488C0.198484 6.27953 6.76764 2.00353 10.1112 0.986696C13.6547 -0.0909235 21.6077 1.88931 25.2862 9.15643C28.9646 16.4236 20.343 20.9804 15.5725 22.3504C10.8019 23.7204 1.1427 24.2181 0.670591 15.2488Z" fill="#7B5199"/>
       </svg>
-    </h1>
+      
+  </div>
   <div class="home-hero-about">
-    <a href="/about/">
-      À propos de moi  
-      {% render "icon.html", icon: "arrow-long-right", width: 32, height: 32 %}
-    </a>
+    <div class="home-hero-about-link">
+      <a href="/about/">
+        À propos de moi  
+        {% render "icon.html", icon: "arrow-long-right", width: 32, height: 32 %}
+      </a>
+    </div>
 
     <p>J’aime façonner des expériences web où design et code se rencontrent. À la croisée de l’UI et du développement front-end, je cherche à créer des interfaces fluides, esthétiques et accessibles. Entre créativité et technique, chaque projet est pour moi l’occasion d’explorer de nouvelles idées.</p>
   </div>
@@ -36,6 +40,10 @@ permalink: "/"
     {% for service in services %}
       {% render "accordion.html" number: service.id, title: service.label, text: service.text %}
     {% endfor %}
+    <a href="/portfolio/">
+       Mon Portfolio
+      {% render "icon.html", icon: "arrow-long-right", width: 32, height: 32 %}
+    </a>
   </div>
 </section>
 

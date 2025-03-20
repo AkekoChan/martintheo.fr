@@ -2,7 +2,7 @@ export default {
   header: [
     {
       permalink: "/about/",
-      text: "A propos de moi",
+      text: "À propos de moi",
     },
     {
       permalink: "/blog/",

@@ -1,4 +1,5 @@
 console.log("Made with 💜");
+import { isEvenOrOdd } from "./utils/number.js";
 
 (function () {
   const App = {
@@ -8,7 +9,6 @@ console.log("Made with 💜");
     DOM: {
       menuIcon: document.querySelector(".header-open-nav"),
       menuNav: document.querySelector(".header-nav"),
-      homeTitle: document.querySelector(".home-main-title"),
       btnLike: document.querySelector(".like"),
       btnOpenModal: document.querySelector(".share-btn"),
       btnCloseModal: document.querySelector(".share-modal-btn"),
@@ -21,10 +21,17 @@ console.log("Made with 💜");
         container: document.querySelector(".card-container"),
         cards: document.querySelectorAll(".card"),
       },
-      // header: {
-      //   logo: document.querySelector(".header-logo"),
-      //   links: document.querySelectorAll(".header-link"),
-      // },
+      header: {
+        logo: document.querySelector(".header-logo"),
+        links: document.querySelectorAll(".header-link"),
+      },
+      homeHero: {
+        title: document.querySelector(".home-main-title"),
+        svg: document.querySelector(".home-main-title-wrapper svg"),
+        link: document.querySelector(".home-hero-about-link"),
+        paragraph: document.querySelector(".home-hero-about p"),
+        scroll: document.querySelector(".home-hero-scroll"),
+      },
       // title: document.querySelector(".home-main-title"),
       // paragraph: document.querySelector(".home-paragraph"),
     },
@@ -48,9 +55,9 @@ console.log("Made with 💜");
       // Fonctions générales
       window.addEventListener("resize", App.handleScreenResize);
       App.handleOpenAccordion();
-      // App.handleRevealHeader();
-      // App.handleRevealHero();
+      App.handleRevealHero();
       App.handleScrollAnimation();
+      App.handleTransitionPage();
       App.DOM.menuIcon.addEventListener("click", App.handleMenuToggle);
       App.DOM.btnOpenModal?.addEventListener("click", App.handleOpenModal);
       App.DOM.btnCloseModal?.addEventListener("click", App.handleCloseModal);
@@ -186,33 +193,6 @@ console.log("Made with 💜");
         });
       }
     },
-    handleRevealHeader: () => {
-      const logo = App.DOM.header.logo;
-      const links = App.DOM.header.links;
-
-      const headerTimeline = gsap.timeline();
-
-      headerTimeline
-        .fromTo(
-          logo,
-          { y: -30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.4, ease: "sine.out", delay: 0.2 }
-        )
-        .fromTo(
-          links,
-          {
-            y: -50,
-            opacity: 0,
-          },
-          {
-            y: 0,
-            opacity: 1,
-            ease: "sine.out",
-            stagger: 0.2,
-            duration: 0.6,
-          }
-        );
-    },
     handleScrollAnimation: () => {
       gsap.registerEffect({
         name: "fadeRotate",
@@ -284,7 +264,7 @@ console.log("Made with 💜");
             duration: 0.3,
             scrollTrigger: {
               trigger: card,
-              start: "top 80%",
+              start: "top 90%",
             },
             delay: index * 0.2,
           }
@@ -292,9 +272,147 @@ console.log("Made with 💜");
       });
     },
     handleRevealHero: () => {
-      const { homeTitle } = App.DOM;
-      if (!homeTitle) return;
-      const title = new SplitType(App.DOM.homeTitle, { types: "words" });
+      const { title, svg, link, paragraph, scroll } = App.DOM.homeHero;
+      const { links, logo } = App.DOM.header;
+
+      if (!title || !svg || !logo || !links || !paragraph || !link || !scroll)
+        return;
+
+      const text = new SplitType(title, { types: "lines" });
+
+      let evenLines = [];
+      let oddLines = [];
+
+      text.lines.forEach((line, index) => {
+        isEvenOrOdd(index) === "even"
+          ? evenLines.push(line)
+          : oddLines.push(line);
+      });
+
+      const tl = gsap.timeline({ duration: 0.2, ease: "power1.in" });
+
+      const evenAnimation = {
+        start: { opacity: 0, x: -100, scale: 0.8 },
+        end: { opacity: 1, x: 0, scale: 1 },
+      };
+
+      const oddAnimation = {
+        start: { opacity: 0, x: 100, scale: 0.8 },
+        end: { opacity: 1, x: 0, scale: 1 },
+      };
+
+      tl.fromTo(logo, { y: -30, opacity: 0 }, { y: 0, opacity: 1, delay: 0.4 })
+        .fromTo(
+          links,
+          {
+            y: -50,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.2,
+          },
+          ">-0.2"
+        )
+        .fromTo(evenLines[0], evenAnimation.start, evenAnimation.end, ">-0.2")
+        .fromTo(oddLines[0], oddAnimation.start, oddAnimation.end, ">-0.2")
+        .fromTo(evenLines[1], evenAnimation.start, evenAnimation.end, ">-0.2")
+        .fromTo(oddLines[1], oddAnimation.start, oddAnimation.end, ">-0.2")
+        .from(svg, {
+          x: -30,
+          y: -30,
+          opacity: 0,
+        })
+        .fromTo(
+          link,
+          {
+            x: -30,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            opacity: 1,
+          },
+          ">-0.3"
+        )
+        .fromTo(
+          paragraph,
+          {
+            x: 30,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            opacity: 1,
+          },
+          "<"
+        )
+        .from(scroll, { y: -30, opacity: 0 });
+    },
+
+    handleTransitionPage: () => {
+      document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const href = link.getAttribute("href");
+
+          if (
+            href &&
+            !href.startsWith("#") &&
+            href !== window.location.pathname
+          ) {
+            App.animateTransition().then(() => {
+              window.location.href = href;
+            });
+          }
+        });
+      });
+
+      App.revealTransition().then(() => {
+        gsap.set(".transition", {
+          visibility: "hidden",
+        });
+      });
+    },
+
+    // Transition de sortie
+    revealTransition: () => {
+      const ease = "circ.inOut";
+
+      return new Promise((resolve) => {
+        gsap.set(".transition", {
+          y: "0",
+          visibility: "visible",
+        });
+
+        gsap.to(".transition", {
+          duration: 0.6,
+          y: "-100%",
+          ease: ease,
+          onComplete: resolve,
+        });
+      });
+    },
+
+    // Transition d'entrée
+    animateTransition: () => {
+      const ease = "circ.inOut";
+
+      return new Promise((resolve) => {
+        gsap.set(".transition", {
+          y: "-100%",
+          visibility: "visible",
+        });
+
+        gsap.to(".transition", {
+          duration: 0.6,
+          y: "0",
+          ease: ease,
+          onComplete: resolve,
+        });
+      });
     },
   };
 
