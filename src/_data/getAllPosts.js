@@ -39,28 +39,25 @@ const getAllPosts = async () => {
   });
 
   const formattedPosts = posts.data.map((post) => {
-    const categoryNames = post.attributes.categories.data.reduce(
-      (acc, item) => {
-        return acc.concat(Object.values(item.attributes));
-      },
-      []
-    );
+    const categoryNames = post.categories.reduce((acc, item) => {
+      return acc.concat(item.name);
+    }, []);
 
     return {
       id: post.id,
-      title: post.attributes.title,
-      description: post.attributes.description,
-      content: post.attributes.content,
-      isInteresting: post.attributes.isInteresting,
+      title: post.title,
+      description: post.description,
+      content: post.content,
+      isInteresting: post.isInteresting,
       date: {
-        createdAt: post.attributes.createdAt,
-        updatedAt: post.attributes.updatedAt,
+        createdAt: post.createdAt,
+        updatedAt: post.updatedAt,
       },
-      slug: post.attributes.slug,
+      slug: post.slug,
       categories: categoryNames,
       thumbnail: {
-        url: post.attributes.thumbnail.data.attributes.url,
-        alt: post.attributes.thumbnail.data.attributes.alternativeText,
+        url: post.thumbnail.url,
+        alt: post.thumbnail.alternativeText,
       },
     };
   });

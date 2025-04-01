@@ -42,38 +42,32 @@ const getAllProjects = async () => {
   });
 
   const formattedProjects = projects.data.map((project) => {
-    const formattedImages = project.attributes.medias.data.reduce(
-      (acc, item) => {
-        acc.push({
-          url: item.attributes.url,
-          alt: item.attributes.alternativeText,
-        });
-        return acc;
-      },
-      []
-    );
+    const formattedImages = project.medias.reduce((acc, item) => {
+      acc.push({
+        url: item.url,
+        alt: item.alternativeText,
+      });
+      return acc;
+    }, []);
 
-    const servicesNames = project.attributes.services.data.reduce(
-      (acc, item) => {
-        return acc.concat(Object.values(item.attributes));
-      },
-      []
-    );
+    const servicesNames = project.services.reduce((acc, item) => {
+      return acc.concat(item.name);
+    }, []);
 
     return {
       id: project.id,
-      title: project.attributes.title,
-      description: project.attributes.description,
-      about: project.attributes.about,
-      date: project.attributes.date,
-      slug: project.attributes.slug,
-      github: project.attributes.github,
-      link: project.attributes.link,
+      title: project.title,
+      description: project.description,
+      about: project.about,
+      date: project.date,
+      slug: project.slug,
+      github: project.github,
+      link: project.link,
       medias: formattedImages,
       services: servicesNames,
       thumbnail: {
-        url: project.attributes.thumbnail.data.attributes.url,
-        alt: project.attributes.thumbnail.data.attributes.alternativeText,
+        url: project.thumbnail.url,
+        alt: project.thumbnail.alternativeText,
       },
     };
   });
