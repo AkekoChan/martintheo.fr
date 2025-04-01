@@ -5,6 +5,7 @@ import { isEvenOrOdd } from "./utils/number.js";
   const App = {
     // les constantes
     isLiked: false,
+    history: JSON.parse(localStorage.getItem("history")) || [],
     // les éléments du DOM
     DOM: {
       transition: document.querySelector(".transition"),
@@ -66,6 +67,10 @@ import { isEvenOrOdd } from "./utils/number.js";
         btn.addEventListener("click", App.handleShare);
       });
       // App.DOM.btnLike?.addEventListener("click", App.handleLikeToggle);
+      App.addToHistory();
+      window.addEventListener("popstate", () => {
+        App.handleBackNavigation();
+      });
     },
     /**
      * Mise en place du service worker
@@ -351,7 +356,6 @@ import { isEvenOrOdd } from "./utils/number.js";
         )
         .from(scroll, { y: -30, opacity: 0 });
     },
-
     handleTransitionPage: () => {
       document.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", (e) => {
@@ -383,6 +387,34 @@ import { isEvenOrOdd } from "./utils/number.js";
       setTimeout(() => {
         App.DOM.transition.classList.remove("show-leave");
       }, 600);
+    },
+
+    addToHistory: (url) => {
+      const currentHref = url || window.location.href;
+
+      App.history.push({ url: currentHref, timestamp: Date.now() });
+
+      if (App.history.length > 10) {
+        App.history.shift();
+      }
+      localStorage.setItem("history", JSON.stringify(App.history));
+    },
+
+    getPreviousUrl: () => {
+      if (App.history.length < 2) return null;
+
+      return App.history[App.history.length - 2].url;
+    },
+
+    handleBackNavigation: () => {
+      const previousUrl = App.getPreviousUrl();
+      if (previousUrl) {
+        document.querySelector(".transition").classList.add("hide-leave");
+
+        setTimeout(() => {
+          window.location.href = previousUrl;
+        }, 850);
+      }
     },
   };
 
