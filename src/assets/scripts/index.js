@@ -67,10 +67,6 @@ import { isEvenOrOdd } from "./utils/number.js";
         btn.addEventListener("click", App.handleShare);
       });
       // App.DOM.btnLike?.addEventListener("click", App.handleLikeToggle);
-      // App.addToHistory();
-      // window.addEventListener("popstate", () => {
-      //   App.handleBackNavigation();
-      // });
 
       window.addEventListener("pageshow", (event) => {
         if (event.persisted) {
