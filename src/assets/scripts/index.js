@@ -75,6 +75,9 @@ import { isEvenOrOdd } from "./utils/number.js";
       window.addEventListener("pageshow", (event) => {
         if (event.persisted) {
           App.DOM.transition.classList.add("hide-leave");
+          setTimeout(() => {
+            App.DOM.transition.classList.remove("show-leave");
+          }, 600);
         }
       });
     },
@@ -393,34 +396,6 @@ import { isEvenOrOdd } from "./utils/number.js";
       setTimeout(() => {
         App.DOM.transition.classList.remove("show-leave");
       }, 600);
-    },
-
-    addToHistory: (url) => {
-      const currentHref = url || window.location.href;
-
-      App.history.push({ url: currentHref, timestamp: Date.now() });
-
-      if (App.history.length > 10) {
-        App.history.shift();
-      }
-      localStorage.setItem("history", JSON.stringify(App.history));
-    },
-
-    getPreviousUrl: () => {
-      if (App.history.length < 2) return null;
-
-      return App.history[App.history.length - 2].url;
-    },
-
-    handleBackNavigation: () => {
-      const previousUrl = App.getPreviousUrl();
-      if (previousUrl) {
-        document.querySelector(".transition").classList.add("hide-leave");
-
-        setTimeout(() => {
-          window.location.href = previousUrl;
-        }, 850);
-      }
     },
   };
 
