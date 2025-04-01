@@ -7,6 +7,7 @@ import { isEvenOrOdd } from "./utils/number.js";
     isLiked: false,
     // les éléments du DOM
     DOM: {
+      transition: document.querySelector(".transition"),
       menuIcon: document.querySelector(".header-open-nav"),
       menuNav: document.querySelector(".header-nav"),
       btnLike: document.querySelector(".like"),
@@ -65,8 +66,6 @@ import { isEvenOrOdd } from "./utils/number.js";
         btn.addEventListener("click", App.handleShare);
       });
       // App.DOM.btnLike?.addEventListener("click", App.handleLikeToggle);
-
-      window.addEventListener("popstate", App.revealTransition);
     },
     /**
      * Mise en place du service worker
@@ -371,10 +370,8 @@ import { isEvenOrOdd } from "./utils/number.js";
             !href.startsWith("#") &&
             href !== window.location.pathname
           ) {
-            document
-              .querySelector(".transition")
-              .classList.remove("hide-leave");
-            document.querySelector(".transition").classList.add("show-leave");
+            App.DOM.transition.classList.remove("hide-leave");
+            App.DOM.transition.classList.add("show-leave");
             setTimeout(() => {
               window.location.href = href;
             }, 600);
@@ -382,9 +379,9 @@ import { isEvenOrOdd } from "./utils/number.js";
         });
       });
 
-      document.querySelector(".transition").classList.add("hide-leave");
+      App.DOM.transition.classList.add("hide-leave");
       setTimeout(() => {
-        document.querySelector(".transition").classList.remove("show-leave");
+        App.DOM.transition.classList.remove("show-leave");
       }, 600);
     },
   };
