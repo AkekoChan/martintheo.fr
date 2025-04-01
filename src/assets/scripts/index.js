@@ -65,6 +65,8 @@ import { isEvenOrOdd } from "./utils/number.js";
         btn.addEventListener("click", App.handleShare);
       });
       // App.DOM.btnLike?.addEventListener("click", App.handleLikeToggle);
+
+      window.addEventListener("popstate", App.revealTransition);
     },
     /**
      * Mise en place du service worker
@@ -369,56 +371,21 @@ import { isEvenOrOdd } from "./utils/number.js";
             !href.startsWith("#") &&
             href !== window.location.pathname
           ) {
-            App.animateTransition().then(() => {
+            document
+              .querySelector(".transition")
+              .classList.remove("hide-leave");
+            document.querySelector(".transition").classList.add("show-leave");
+            setTimeout(() => {
               window.location.href = href;
-            });
+            }, 600);
           }
         });
       });
 
-      App.revealTransition().then(() => {
-        gsap.set(".transition", {
-          visibility: "hidden",
-        });
-      });
-    },
-
-    // Transition de sortie
-    revealTransition: () => {
-      const ease = "circ.inOut";
-
-      return new Promise((resolve) => {
-        gsap.set(".transition", {
-          y: "0",
-          visibility: "visible",
-        });
-
-        gsap.to(".transition", {
-          duration: 0.6,
-          y: "-100%",
-          ease: ease,
-          onComplete: resolve,
-        });
-      });
-    },
-
-    // Transition d'entrée
-    animateTransition: () => {
-      const ease = "circ.inOut";
-
-      return new Promise((resolve) => {
-        gsap.set(".transition", {
-          y: "-100%",
-          visibility: "visible",
-        });
-
-        gsap.to(".transition", {
-          duration: 0.6,
-          y: "0",
-          ease: ease,
-          onComplete: resolve,
-        });
-      });
+      document.querySelector(".transition").classList.add("hide-leave");
+      setTimeout(() => {
+        document.querySelector(".transition").classList.remove("show-leave");
+      }, 600);
     },
   };
 
