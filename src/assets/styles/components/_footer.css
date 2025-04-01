@@ -1,6 +1,6 @@
 .footer {
   border-top: 0.0625rem solid var(--gray);
-  padding: 2rem;
+  padding: 2rem 2rem calc(2rem + 2.875rem);
   width: 100%;
 }
 

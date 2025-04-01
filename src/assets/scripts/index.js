@@ -354,6 +354,12 @@ import { isEvenOrOdd } from "./utils/number.js";
     handleTransitionPage: () => {
       document.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", (e) => {
+          const target = link.getAttribute("target");
+
+          if (target === "_blank") {
+            return;
+          }
+
           e.preventDefault();
 
           const href = link.getAttribute("href");

@@ -1,0 +1,30 @@
+.headband {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  padding: 0.5rem 0;
+  background: var(--ghost-white);
+  color: var(--purple);
+}
+
+.loop-text {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0 0.25rem;
+  animation: loopText 20s infinite linear;
+}
+
+@keyframes loopText {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}

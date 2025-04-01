@@ -1,0 +1,13 @@
+{% assign n = 3 %}
+{% assign textArray = "" | split: "" %}
+
+{% for i in (1..n) %}
+  {% assign textArray = textArray | push: text %}
+{% endfor %}
+
+
+<div class="headband">
+  {% for text in textArray %}
+    <p class="loop-text">{{text}}</p>
+  {% endfor %}
+</div>
