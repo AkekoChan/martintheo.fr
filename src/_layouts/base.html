@@ -73,6 +73,17 @@
     <meta name="generator" content="{{ eleventy.generator }}" />
     <link rel="manifest" href="{{ "manifest.json" | toAbsoluteUrl }}">
     <meta name="theme-color" content="{{ metadata.themeColor }}" />
+    <!-- Hotjar Tracking Code for https://martintheo.fr/ -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6471760,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
     {% comment %} <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css"> {% endcomment %}
   </head>
   <body>
